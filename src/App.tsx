@@ -1,26 +1,29 @@
 import React from 'react';
 import logo from './logo.svg';
+import { HashRouter as Router, Route, Link, Switch } from 'react-router-dom';
+import { render } from 'react-dom';
 import './App.css';
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Router>
+      <div>
+        <nav>
+          <li><Link to="/">Home</Link></li>
+          <li><Link to="/vaccine">Vaccine Data</Link></li>
+          <li><Link to="/covid">Covid Data</Link></li>
+        </nav>
+        {/* A <Switch> looks through its children <Route>s and
+          renders the first one that matches the current URL. */}
+          <Switch>
+            <Route exact path="/">Home</Route>
+            <Route exact path="/vaccine">Vaccine Component</Route>
+            <Route exact path="/covid">Covid Data component</Route>
+          </Switch>
+      </div>
+    </Router>
   );
 }
+
 
 export default App;
