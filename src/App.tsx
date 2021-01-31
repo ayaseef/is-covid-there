@@ -3,7 +3,7 @@ import { HashRouter as Router, Route, Link, Switch } from 'react-router-dom';
 import { render } from 'react-dom';
 import './App.css';
 import CovidData from './components/api/CovidDataApi'
-import Va
+import VaccineData from './components/api/VaccineDataApi'
 
 function App() {
   return (
@@ -18,7 +18,7 @@ function App() {
           renders the first one that matches the current URL. */}
           <Switch>
             <Route exact path="/">Home component</Route>
-            <Route exact path="/vaccine">Vaccine Component</Route>
+            <Route exact path="/vaccine">Vaccine component</Route>
             <Route exact path="/covid">Covid Data component</Route>
           </Switch>
       </div>
