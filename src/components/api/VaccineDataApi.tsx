@@ -1,6 +1,13 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 
+type VaccineDataState = {
+    LongName: string,
+    Location: string,
+    Doses_Distributed: number
+}
+
+
 const VaccineData = () => {
     const [vaccine, SetVaccine] = useState([])
     const [errorMessage,SetErrorMessage] = useState(null)
@@ -18,10 +25,12 @@ const VaccineData = () => {
     }, []);
 
     // Maps (to be formated later for proper mapping)
-    const vaccineListMap = vaccine.map((state, i) => {
+    const vaccineListMap = vaccine.map((state: VaccineDataState, i): any => {
         return(
             <li>
-                {state.LongName}, {state.Location},{state.Doses_Distributed};
+                {state.LongName}, 
+                {state.Location}, 
+                {state.Doses_Distributed};
             </li>
         )
     })

@@ -1,6 +1,13 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 
+type CovidDataState = {
+    County: string,
+    State_name: string,
+    Cases_7_day_count_change: number,
+    deaths_7_day_count_change: number
+}
+
 const CovidData = () => {
     const [covid, SetCovid] = useState([])
     const [errorMessage,SetErrorMessage] = useState(null)
@@ -18,7 +25,7 @@ const CovidData = () => {
     }, []);
 
     // Maps (to be formated later for proper mapping)
-    const covidListMap = covid.map((state, i) => {
+    const covidListMap = covid.map((state: CovidDataState, i): any => {
         return(
             <li>
                 {state.County}, 
