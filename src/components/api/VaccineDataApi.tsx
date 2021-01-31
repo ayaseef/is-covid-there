@@ -2,9 +2,17 @@ import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 
 type VaccineDataState = {
-    LongName: string,
+    Date: Date,
     Location: string,
-    Doses_Distributed: number
+    LongName: string,
+    Doses_Distributed: number,
+    Doses_Administered: number,
+    Dist_Per_100K: number,
+    Admin_Per_100K: number,
+    Administered_Dose1: number,
+    Administered_Dose1_Per_100K: number,
+    Administered_Dose2: number,
+    Administered_Dose2_Per_100K: number
 }
 
 
