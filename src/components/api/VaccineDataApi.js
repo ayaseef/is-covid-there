@@ -13,6 +13,7 @@ const VaccineData = () => {
         })
         .catch((error) => {
             SetErrorMessage(error.message);
+            console.log(errorMessage);
         })
     }, []);
 

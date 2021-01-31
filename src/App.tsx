@@ -3,6 +3,7 @@ import { HashRouter as Router, Route, Link, Switch } from 'react-router-dom';
 import { render } from 'react-dom';
 import './App.css';
 import CovidData from './components/api/CovidDataApi'
+import Va
 
 function App() {
   return (
