@@ -17,18 +17,21 @@ const CovidData = () => {
         })
     }, []);
 
-    // just for testing
-    const covidList = covid.map((state, i) => {
+    // Maps (to be formated later for proper mapping)
+    const covidListMap = covid.map((state, i) => {
         return(
             <li>
-                {state.County}
+                {state.County}, 
+                {state.State_name}, 
+                {state.Cases_7_day_count_change}, 
+                {state.deaths_7_day_count_change};
             </li>
         )
     })
 
     return(
         <div>
-            {covidList}
+            {covidListMap}
         </div>
     )
 };

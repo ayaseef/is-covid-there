@@ -19,7 +19,7 @@ function App() {
           <Switch>
             <Route exact path="/">Home component</Route>
             <Route exact path="/vaccine">Vaccine component</Route>
-            <Route exact path="/covid">Covid Data component</Route>
+            <Route exact path="/covid">Covid component</Route>
           </Switch>
       </div>
     </Router>

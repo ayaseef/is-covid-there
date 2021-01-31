@@ -17,18 +17,18 @@ const VaccineData = () => {
         })
     }, []);
 
-    // just for testing
-    const vaccineList = vaccine.map((state, i) => {
+    // Maps (to be formated later for proper mapping)
+    const vaccineListMap = vaccine.map((state, i) => {
         return(
             <li>
-                {state.LongName}
+                {state.LongName}, {state.Location},{state.Doses_Distributed};
             </li>
         )
     })
 
     return(
         <div>
-            {vaccineList}
+            {vaccineListMap}
         </div>
     )
 };
