@@ -18,7 +18,9 @@ function App() {
           renders the first one that matches the current URL. */}
           <Switch>
             <Route exact path="/">Home component</Route>
-            <Route exact path="/vaccine">Vaccine component</Route>
+            <Route exact path="/vaccine">Vaccine component
+            <VaccineData stateName={"WA"} vaccineProperty={"LongName"}/>
+            </Route>
             <Route exact path="/covid">Covid component</Route>
           </Switch>
       </div>

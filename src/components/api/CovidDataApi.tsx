@@ -63,4 +63,5 @@ const CovidData = () => {
     )
 };
 
+
 export default CovidData;

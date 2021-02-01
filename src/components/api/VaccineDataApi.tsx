@@ -12,12 +12,16 @@ type VaccineDataState = {
     Administered_Dose1: number,
     Administered_Dose1_Per_100K: number,
     Administered_Dose2: number,
-    Administered_Dose2_Per_100K: number
+    Administered_Dose2_Per_100K: number,
 }
 
+interface vaccineProps{
+    stateName: string;
+    vaccineProperty: keyof VaccineDataState;
+}
 
-const VaccineData = () => {
-    const [vaccine, SetVaccine] = useState([])
+const VaccineData = (prop:vaccineProps) => {
+    const [vaccine, SetVaccine] = useState<VaccineDataState[]>([])
     const [errorMessage,SetErrorMessage] = useState(null)
 
     useEffect(() => {
@@ -33,21 +37,43 @@ const VaccineData = () => {
     }, []);
 
     // Maps (to be formated later for proper mapping)
-    const vaccineListMap = vaccine.map((state: VaccineDataState, i): any => {
-        return(
-            <li>
-                {state.LongName}, 
-                {state.Location}, 
-                {state.Doses_Distributed};
-            </li>
-        )
-    })
+    // const vaccineListMap = vaccine.map((state: VaccineDataState, i): any => {
+    //     return(
+    //         <li>
+    //             {state.LongName}, 
+    //             {state.Location}, 
+    //             {state.Doses_Distributed};
+    //         </li>
+    //     )
+    // })
+
+    // return(
+    //     <div>
+    //         {vaccineListMap}
+    //     </div>
+    // )
+
+
+    // let vaccineDataPoint = (stateName:string): any =>{
+    //     if ( vaccine.find(state => state.Location === stateName)){
+    //         return(
+    //             <div> {vaccine.Location} </div>)
+    //     }
+    // }
+
+    let vaccineData = vaccine.find(state => state.Location === prop.stateName);
+    if(!vaccineData)
+        return <p>Data not found!</p>
+    // else
+    //     return vaccineData.vaccineProperty
 
     return(
         <div>
-            {vaccineListMap}
+            <p>test</p>
+            {vaccineData[prop.vaccineProperty]}
         </div>
     )
+    
 };
 
 export default VaccineData;
