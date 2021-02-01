@@ -18,6 +18,7 @@ type VaccineDataState = {
 interface vaccineProps{
     stateName: string;
     vaccineProperty: keyof VaccineDataState;
+    map?: boolean
 }
 
 const VaccineData = (prop:vaccineProps) => {
@@ -37,21 +38,22 @@ const VaccineData = (prop:vaccineProps) => {
     }, []);
 
     // Maps (to be formated later for proper mapping)
-    // const vaccineListMap = vaccine.map((state: VaccineDataState, i): any => {
-    //     return(
-    //         <li>
-    //             {state.LongName}, 
-    //             {state.Location}, 
-    //             {state.Doses_Distributed};
-    //         </li>
-    //     )
-    // })
+    if(prop.map){
+    const vaccineListMap = vaccine.map((state: VaccineDataState, i): any => {
+        return(
+            <li>
+                {state.LongName}, 
+                {state.Location}, 
+                {state.Doses_Distributed};
+            </li>
+        )
+    })
 
-    // return(
-    //     <div>
-    //         {vaccineListMap}
-    //     </div>
-    // )
+    return(
+        <div>
+            {vaccineListMap}
+        </div>
+    )}
 
 
     // let vaccineDataPoint = (stateName:string): any =>{
