@@ -1,6 +1,7 @@
-import React, { useEffect, useState } from 'react';
+import React, {useEffect, useState} from 'react';
 import axios from 'axios';
 
+// define the data type of what we are receiving from the API
 type VaccineDataState = {
     Date: Date,
     Location: string,
@@ -14,57 +15,66 @@ type VaccineDataState = {
     Administered_Dose2: number,
     Administered_Dose2_Per_100K: number,
 }
-
+// before we write the function we need to define it's arguments(or parameters) by using interface
+// funtion(stateName,info)return that info for that state
 interface vaccineProps{
     stateName: string;
-    vaccineProperty: keyof VaccineDataState;
+    info: keyof VaccineDataState;  //one of the keys of VaccineDataState type
     map?: boolean
 }
 
-const VaccineData = (prop:vaccineProps) => {
-    const [vaccine, SetVaccine] = useState<VaccineDataState[]>([])
-    const [errorMessage,SetErrorMessage] = useState(null)
 
+// one huge function that does everything!
+const VaccineData = (prop:vaccineProps) => {
+    // create useState variable to capture the data as state (because it changes)
+    // useState is setting a variable and then making that variable change
+    const [vaccine, setVaccine] = useState<VaccineDataState[]>([])
+    const [errorMessage, SetErrorMessage] = useState(null)
+
+    // get the data from API in AXIO, useEffect
     useEffect(() => {
         axios.get("https://covid-cdc-api.herokuapp.com/vaccines")
+        // store the data from API useState (it will keep changing daily because data is updated daily)
         .then((response) => {
-            const apiVaccineData = response.data.vaccination_data;
-            SetVaccine(apiVaccineData);
+            const tempVaccine = response.data.vaccination_data;
+            setVaccine(tempVaccine);
         })
         .catch((error) => {
-            SetErrorMessage(error.message);
-            console.log(errorMessage);
+            SetErrorMessage(error.message)
+            console.log(errorMessage)
         })
     }, []);
-
-    // Use this only for Maps
+    // we need the data to be designed properly in order to easily be displayed in a map
     if(prop.map){
-    const vaccineListMap = vaccine.map((state: VaccineDataState, i): any => {
+        const vaccineListMap = vaccine.map((state: VaccineDataState, i): any =>{
+            return(
+                <li>
+                    {state.LongName}, 
+                    {state.Date},
+                    {state.Doses_Administered}
+                </li>
+            )
+        })
+
         return(
-            <li>
-                {state.LongName}, 
-                {state.Location}, 
-                {state.Doses_Distributed};
-            </li>
+            <div>
+                {vaccineListMap}
+            </div>
         )
-    })
+    }
 
-    return(
-        <div>
-            {vaccineListMap}
-        </div>
-    )}
-
-    let vaccineData = vaccine.find(state => state.Location === prop.stateName);
+    // create a function (state, info) it will return the info for that specific state
+    let vaccineData = vaccine.find(state => state.LongName === prop.stateName);
     if(!vaccineData)
-        return <p>Data not found!</p>
+    return <p> Data not found! </p>
 
     return(
         <div>
-            {vaccineData[prop.vaccineProperty]}
+            {vaccineData[prop.info]}
         </div>
     )
-    
-};
+}
 
-export default VaccineData;
+
+
+export default VaccineData
