@@ -21,7 +21,9 @@ function App() {
             <Route exact path="/vaccine">Vaccine component
             <VaccineData stateName={"WA"} vaccineProperty={"LongName"} map={true}/>
             </Route>
-            <Route exact path="/covid">Covid component</Route>
+            <Route exact path="/covid">Covid component
+            <CovidData stateName={"Washington"} countyName={"King"} covidProperty={"County"} map={true}/>
+            </Route>
           </Switch>
       </div>
     </Router>

@@ -28,8 +28,15 @@ type CovidDataState = {
 
 }
 
-const CovidData = () => {
-    const [covid, SetCovid] = useState([])
+interface covidProps{
+    stateName: string;
+    countyName: string;
+    covidProperty: keyof CovidDataState;
+    map?: boolean
+}
+
+const CovidData = (prop:covidProps) => {
+    const [covid, SetCovid] = useState<CovidDataState[]>([])
     const [errorMessage,SetErrorMessage] = useState(null)
 
     useEffect(() => {
@@ -44,23 +51,35 @@ const CovidData = () => {
         })
     }, []);
 
-    // Maps (to be formated later for proper mapping)
-    const covidListMap = covid.map((state: CovidDataState, i): any => {
-        return(
-            <li>
-                {state.County}, 
-                {state.State_name}, 
-                {state.Cases_7_day_count_change}, 
-                {state.deaths_7_day_count_change};
-            </li>
-        )
-    })
+    // Use this only for Maps
+    if(prop.map){
+        const covidListMap = covid.map((state: CovidDataState, i): any => {
+            return(
+                <li>
+                    {state.County}, 
+                    {state.State_name}, 
+                    {state.Cases_7_day_count_change}, 
+                    {state.deaths_7_day_count_change};
+                </li>
+            )
+        })
 
-    return(
-        <div>
-            {covidListMap}
-        </div>
-    )
+        return(
+            <div>
+                {covidListMap}
+            </div>
+        )}
+
+        let covidData = covid.find(state => state.State_name === prop.stateName && state.County === prop.countyName);
+        if(!covidData)
+            return <p>Data not found!</p>
+
+        return(
+            <div>
+                {covidData[prop.covidProperty]}
+            </div>
+        )
+
 };
 
 

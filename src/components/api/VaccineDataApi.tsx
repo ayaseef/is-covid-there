@@ -37,7 +37,7 @@ const VaccineData = (prop:vaccineProps) => {
         })
     }, []);
 
-    // Maps (to be formated later for proper mapping)
+    // Use this only for Maps
     if(prop.map){
     const vaccineListMap = vaccine.map((state: VaccineDataState, i): any => {
         return(
@@ -55,23 +55,12 @@ const VaccineData = (prop:vaccineProps) => {
         </div>
     )}
 
-
-    // let vaccineDataPoint = (stateName:string): any =>{
-    //     if ( vaccine.find(state => state.Location === stateName)){
-    //         return(
-    //             <div> {vaccine.Location} </div>)
-    //     }
-    // }
-
     let vaccineData = vaccine.find(state => state.Location === prop.stateName);
     if(!vaccineData)
         return <p>Data not found!</p>
-    // else
-    //     return vaccineData.vaccineProperty
 
     return(
         <div>
-            <p>test</p>
             {vaccineData[prop.vaccineProperty]}
         </div>
     )
