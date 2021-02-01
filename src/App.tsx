@@ -4,6 +4,11 @@ import { render } from 'react-dom';
 import './App.css';
 import CovidData from './components/api/CovidDataApi'
 import VaccineData from './components/api/VaccineDataApi'
+import FooterData from './components/Footer'
+import CovidComponenet from './components/covid/CovidParentComponent'
+import VaccineComponenet from './components/vaccine/VaccineParentComponent'
+import HomeComponenet from './components/home/HomeParentComponent'
+
 
 function App() {
   return (
@@ -17,14 +22,18 @@ function App() {
         {/* A <Switch> looks through its children <Route>s and
           renders the first one that matches the current URL. */}
           <Switch>
-            <Route exact path="/">Home component</Route>
-            <Route exact path="/vaccine">Vaccine component
-            <VaccineData stateName={"Alaska"} info={'LongName'} map={true}/>
+            <Route exact path="/">
+              <HomeComponenet/>
+              </Route>
+            <Route exact path="/vaccine">
+              <VaccineComponenet/>
+            {/* <VaccineData stateName={"Alaska"} info={'LongName'} map={true}/> */}
             </Route>
-            <Route exact path="/covid">Covid component
-            <CovidData stateName={"Washington"} countyName={"King"} covidProperty={"County"} map={true}/>
+            <Route exact path="/covid">
+              <CovidComponenet/>
             </Route>
-          </Switch>
+          </Switch>            
+          <FooterData/>
       </div>
     </Router>
   );
