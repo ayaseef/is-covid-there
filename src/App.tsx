@@ -8,17 +8,21 @@ import FooterData from './components/Footer'
 import CovidComponenet from './components/covid/CovidParentComponent'
 import VaccineComponenet from './components/vaccine/VaccineParentComponent'
 import HomeComponenet from './components/home/HomeParentComponent'
+import { Spinner } from 'react-bootstrap';
+import 'bootstrap/dist/css/bootstrap.min.css';
+;
 
 
 function App() {
   return (
     <Router>
       <div>
-        <nav>
+        <ul>
           <li><Link to="/">Home</Link></li>
           <li><Link to="/vaccine">Vaccine Data</Link></li>
           <li><Link to="/covid">Covid Data</Link></li>
-        </nav>
+        </ul>
+
         {/* A <Switch> looks through its children <Route>s and
           renders the first one that matches the current URL. */}
           <Switch>
