@@ -4,6 +4,7 @@ const HomeComponenet = () :any => {
     return(
         <div>
             All Home componentes
+            {/* animation component here maybe */}
         </div>
     )
 }
