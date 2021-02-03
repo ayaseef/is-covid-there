@@ -5,6 +5,7 @@ import '../data/counties'
 import 'bootstrap/dist/css/bootstrap.min.css';
 import React,{ useState } from 'react';
 import { statesCounties } from '../data/counties';
+import { allStates } from '../data/states'
 
 
 // The forwardRef is important!!
@@ -67,13 +68,13 @@ const CustomToggle = React.forwardRef(({ children, onClick }, ref) => (
             'Arizona',
             ]
 
-        const countiesState = {
-            Alaska: [ "one Alaska", "two Alaska"],
-            Alabama: ["Alabama one", "Alabama two"]
-        }
+        // const countiesState = {
+        //     Alaska: [ "one Alaska", "two Alaska"],
+        //     Alabama: ["Alabama one", "Alabama two"]
+        // }
 
         //filter data for the counties of a specific state
-        const stateCounties = countiesState[state]
+        const stateCounties = statesCounties[state]
         // setCounties(statesCounties);
 
     return(
@@ -82,9 +83,8 @@ const CustomToggle = React.forwardRef(({ children, onClick }, ref) => (
             <Dropdown.Toggle as={CustomToggle} id="dropdown-custom-components">
             Select a State <span></span>   
             </Dropdown.Toggle>
-            {console.log(counties)}
             <Dropdown.Menu as={CustomMenu}>
-                {states.map((state,i) => {
+                {allStates.map((state,i) => {
                 return(
                     <Dropdown.Item eventKey={i + 1} onClick={(event)=>{props.onStateSelected(state);
                         setState(state)
