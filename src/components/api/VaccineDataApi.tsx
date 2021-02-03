@@ -1,5 +1,6 @@
 import React, {useEffect, useState} from 'react';
 import axios from 'axios';
+import { allowedNodeEnvironmentFlags } from 'process';
 
 // define the data type of what we are receiving from the API
 type VaccineDataState = {
@@ -20,7 +21,8 @@ type VaccineDataState = {
 interface vaccineProps{
     stateName: string;
     info: keyof VaccineDataState;  //one of the keys of VaccineDataState type
-    map?: boolean
+    map?: boolean;
+    statesOnly?: boolean;
 }
 
 
@@ -48,11 +50,11 @@ const VaccineData = (prop:vaccineProps) => {
     if(prop.map){
         const vaccineListMap = vaccine.map((state: VaccineDataState, i): any =>{
             return(
-                <li>
-                    {state.LongName}, 
-                    {state.Date},
-                    {state.Doses_Administered}
-                </li>
+                <div>
+                    "{state.LongName}", 
+                    {/* {state.Date},
+                    {state.Doses_Administered} */}
+                </div>
             )
         })
 
@@ -62,6 +64,7 @@ const VaccineData = (prop:vaccineProps) => {
             </div>
         )
     }
+    
 
     // create a function (state, info) it will return the info for that specific state
     let vaccineData = vaccine.find(state => state.LongName === prop.stateName);

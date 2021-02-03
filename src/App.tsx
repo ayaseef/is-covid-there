@@ -8,7 +8,6 @@ import FooterData from './components/Footer'
 import CovidComponenet from './components/covid/CovidParentComponent'
 import VaccineComponenet from './components/vaccine/VaccineParentComponent'
 import HomeComponenet from './components/home/HomeParentComponent'
-import { Spinner } from 'react-bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
 ;
 
@@ -35,9 +34,11 @@ function App() {
             </Route>
             <Route exact path="/covid">
               <CovidComponenet/>
+              {/* <CovidData stateName={'Alabama'} countyName={'Autauga'} info={'Cases_7_day_count_change'} map={true} /> */}
             </Route>
-          </Switch>            
-          <FooterData/>
+          </Switch>  
+        <br></br>          
+        <FooterData/>
       </div>
     </Router>
   );

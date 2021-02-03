@@ -1,9 +1,16 @@
-import React from 'react';
+import React, { useState } from 'react';
+import CovidSearchState from './CovidSearchState'
+
 
 const CovidComponenet = () :any => {
+    const [state, setState] = useState("")
+    const stateSelected = (stateName:string) :any => {
+        setState(stateName)
+    }
     return(
         <div>
-            All COVID componentes
+            All Covid componentes
+            <CovidSearchState onStateSelected={stateSelected}/>
         </div>
     )
 }

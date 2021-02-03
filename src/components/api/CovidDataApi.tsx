@@ -31,7 +31,7 @@ type CovidDataState = {
 interface covidProps{
     stateName: string;
     countyName: string;
-    covidProperty: keyof CovidDataState;
+    info: keyof CovidDataState;
     map?: boolean
 }
 
@@ -55,12 +55,12 @@ const CovidData = (prop:covidProps) => {
     if(prop.map){
         const covidListMap = covid.map((state: CovidDataState, i): any => {
             return(
-                <li>
-                    {state.County}, 
-                    {state.State_name}, 
+                <div>
+                    {state.State_name},
+                    {state.County},
                     {state.Cases_7_day_count_change}, 
-                    {state.deaths_7_day_count_change};
-                </li>
+                    {state.deaths_7_day_count_change}
+                </div>
             )
         })
 
@@ -76,7 +76,7 @@ const CovidData = (prop:covidProps) => {
 
         return(
             <div>
-                {covidData[prop.covidProperty]}
+                {covidData[prop.info]}
             </div>
         )
 
