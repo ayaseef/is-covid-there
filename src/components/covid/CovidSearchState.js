@@ -1,6 +1,5 @@
 import FormControl from 'react-bootstrap/FormControl';
 import Dropdown from 'react-bootstrap/Dropdown';
-import '../data/counties'
 
 import 'bootstrap/dist/css/bootstrap.min.css';
 import React,{ useState } from 'react';
@@ -100,9 +99,9 @@ const CustomToggle = React.forwardRef(({ children, onClick }, ref) => (
             Select a county <span></span>   
             </Dropdown.Toggle>
             <Dropdown.Menu as={CustomMenu}>
-                {stateCounties.map((value, i) => {
+                {stateCounties.map((county, i) => {
                 return(
-                    <Dropdown.Item eventKey={i + 1} onClick={(event)=>{props.onStateSelected(value)}} >{value}</Dropdown.Item>
+                    <Dropdown.Item eventKey={i + 1} onClick={(event)=>{props.onCountySelected(county)}} >{county}</Dropdown.Item>
                 )
                 })}
             </Dropdown.Menu>

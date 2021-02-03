@@ -3,6 +3,8 @@ import Dropdown from 'react-bootstrap/Dropdown';
 
 import 'bootstrap/dist/css/bootstrap.min.css';
 import React,{ useState } from 'react';
+import { allStates } from '../data/states'
+
 
 
 // The forwardRef is important!!
@@ -54,76 +56,8 @@ const CustomToggle = React.forwardRef(({ children, onClick }, ref) => (
 
     //callback that will show which state was picked
     // iterate and select a callback onClick and chose the state
-  
-
 
     const VaccineSearchState = (props) => {
-        const states = [
-            'Alaska',
-            'Alabama',
-            'Arkansas',
-            'American Samoa',
-            'Arizona',
-            'Bureau of Prisons',
-            'California',
-            'Colorado',
-            'Connecticut',
-            'District of Columbia',
-            'Dept of Defense',
-            'Delaware',
-            'Florida',
-            'Federated States of Micronesia',
-            'Georgia',
-            'Guam',
-            'Hawaii',
-            'Iowa',
-            'Idaho',
-            'Indian Health Svc',
-            'Illinois',
-            'Indiana',
-            'Kansas',
-            'Kentucky',
-            'Louisiana',
-            'Massachusetts',
-            'Maryland',
-            'Maine',
-            'Marshall Islands',
-            'Michigan',
-            'Minnesota',
-            'Missouri',
-            'Northern Mariana Islands',
-            'Mississippi',
-            'Montana',
-            'North Carolina',
-            'North Dakota',
-            'Nebraska',
-            'New Hampshire',
-            'New Jersey',
-            'New Mexico',
-            'Nevada',
-            'New York State',
-            'Ohio',
-            'Oklahoma',
-            'Oregon',
-            'Pennsylvania',
-            'Puerto Rico',
-            'Rhode Island',
-            'Republic of Palau',
-            'South Carolina',
-            'South Dakota',
-            'Tennessee',
-            'Texas',
-            'Utah',
-            'Virginia',
-            'Veterans Health',
-            'Virgin Islands',
-            'Vermont',
-            'Washington',
-            'Wisconsin',
-            'West Virginia',
-            'Wyoming',
-            'United States',
-            'Long Term Care']
 
     return(
     <Dropdown>
@@ -132,7 +66,7 @@ const CustomToggle = React.forwardRef(({ children, onClick }, ref) => (
         </Dropdown.Toggle>
 
         <Dropdown.Menu as={CustomMenu}>
-            {states.map((state,i) => {
+            {allStates.map((state,i) => {
             return(
                 <Dropdown.Item eventKey={i + 1} onClick={(event)=>{props.onStateSelected(state)}} >{state}</Dropdown.Item>
             )
