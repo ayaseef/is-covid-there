@@ -59,20 +59,8 @@ const CustomToggle = React.forwardRef(({ children, onClick }, ref) => (
         const [state, setState] = useState("")
         const [counties, setCounties] = useState(['State not selected'])
 
-        const states = [
-            'Alaska',
-            'Alabama',
-            'Arkansas',
-            'American Samoa',
-            'Arizona',
-            ]
 
-        // const countiesState = {
-        //     Alaska: [ "one Alaska", "two Alaska"],
-        //     Alabama: ["Alabama one", "Alabama two"]
-        // }
-
-        //filter data for the counties of a specific state
+        //filter data for the counties of a specific state and will return an array
         const stateCounties = statesCounties[state]
         // setCounties(statesCounties);
 
