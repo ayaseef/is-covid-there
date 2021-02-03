@@ -10,6 +10,7 @@ import VaccineComponenet from './components/vaccine/VaccineParentComponent'
 import HomeComponenet from './components/home/HomeParentComponent'
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Nav from 'react-bootstrap/Nav';
+import About from './components/About'
 
 
 
@@ -35,6 +36,9 @@ function App() {
           <Nav.Link eventKey="link-3" as={Link} to="/covid">Covid</Nav.Link>
         </Nav.Item>
         <Nav.Item>
+          <Nav.Link eventKey="link-4" as={Link} to="/about">About Us</Nav.Link>
+        </Nav.Item>
+        <Nav.Item>
         </Nav.Item>
       </Nav>
 
@@ -51,6 +55,9 @@ function App() {
             <Route exact path="/covid">
               <CovidComponenet/>
               {/* <CovidData stateName={'Alabama'} countyName={'Autauga'} info={'Cases_7_day_count_change'} map={true} /> */}
+            </Route>
+            <Route exact path="/about">
+              <About/>
             </Route>
           </Switch>  
         <br></br>          

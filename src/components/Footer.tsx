@@ -7,7 +7,8 @@ import React from 'react';
 const FooterData = () :any => {
     return(
         <div>
-            <p> All rights reserved to Noor & Ayesha 2021 </p>
+            <div> All rights reserved to Noor & Ayesha 2021 </div>
+            <div> All Covid and Vaccine Data obtained from updated CDC APIs</div>
         </div>
     )
 }
