@@ -28,7 +28,10 @@ const MapChart = (props) => {
         <Geographies geography={geoUrl}>
             {({ geographies }) =>
             geographies.map(geo => {
-                const cur = data.find(s => s.fips_code === geo.id);
+                const cur = data.find(s => { 
+                    // console.log(s.fips_code)
+                    // console.log(geo.id)
+                    return (s.fips_code == geo.id)});
                 return (
                 <Geography
                     key={geo.rsmKey}

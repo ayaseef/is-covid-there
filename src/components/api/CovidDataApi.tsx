@@ -59,34 +59,34 @@ const CovidData = (prop:covidProps) => {
     }, []);
 
     // Use this only for Maps
-    if(prop.map){
-        const covidListMap = covid.map((state: CovidDataState, i): any => {
-            return(
-                <div>
-                    {state.fips_code},
-                    {state.State_name},
-                    {state.County},
-                    {state.Cases_7_day_count_change}, 
-                    {state.Hospital_data_collection_date}
-                </div>
-            )
-        })
-
-        return(
-            <div>
-                {loading? 
-                <Spinner animation="border" role="status" variant="primary">
-                    <span className="sr-only">Loading...</span>
-                </Spinner> : covidListMap}
-                {/* {covidListMap} */}
-            </div>
-    )}
-
     // if(prop.map){
+    //     const covidListMap = covid.map((state: CovidDataState, i): any => {
+    //         return(
+    //             <div>
+    //                 {state.fips_code},
+    //                 {state.State_name},
+    //                 {state.County},
+    //                 {state.Cases_7_day_count_change}, 
+    //                 {state.Hospital_data_collection_date}
+    //             </div>
+    //         )
+    //     })
+
     //     return(
-    //         <MapChart data={covid}/>
-    //     )
-    // }
+    //         <div>
+    //             {loading? 
+    //             <Spinner animation="border" role="status" variant="primary">
+    //                 <span className="sr-only">Loading...</span>
+    //             </Spinner> : covidListMap}
+    //             {covidListMap}
+    //         </div>
+    // )}
+
+    if(prop.map){
+        return(
+            <MapChart data={covid}/>
+        )
+    }
 
     let covidData = covid.find(state => state.State_name === prop.stateName && state.County === prop.countyName);
     if(!covidData)
