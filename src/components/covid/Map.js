@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { ComposableMap, Geographies, Geography } from "react-simple-maps";
+import { ComposableMap, Geographies, Geography, ZoomableGroup } from "react-simple-maps";
 import { scaleQuantile } from "d3-scale";
 // import { csv } from "d3-fetch";
 
@@ -24,23 +24,26 @@ const MapChart = (props) => {
 
     return (
         <ComposableMap projection="geoAlbersUsa">
-        <Geographies geography={geoUrl}>
-            {({ geographies }) =>
-            geographies.map(geo => {
-                const cur = data.find(s => { 
-                    // console.log(s.fips_code)
-                    // console.log(geo.id)
-                    return (s.fips_code == geo.id)});
-                return (
-                <Geography
-                    key={geo.rsmKey}
-                    geography={geo}
-                    fill={cur ? colorScale(cur[field]) : "#EEE"}
-                />
-                );
-            })
-            }
-        </Geographies>
+            <ZoomableGroup zoom={1}>
+                <Geographies geography={geoUrl}>
+                    {({ geographies }) =>
+                    geographies.map(geo => {
+                        const cur = data.find(s => { 
+                            // console.log(s.fips_code)
+                            // console.log(geo.id)
+                            return (s.fips_code == geo.id)});
+                        return (
+                        <Geography
+                            key={geo.rsmKey}
+                            geography={geo}
+                            fill={cur ? colorScale(cur[field]) : "#EEE"}
+                    
+                        />
+                        );
+                    })
+                    }
+                </Geographies>
+            </ZoomableGroup>
         </ComposableMap>
     );
 };
