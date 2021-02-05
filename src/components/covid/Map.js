@@ -6,8 +6,7 @@ import { scaleQuantile } from "d3-scale";
 const geoUrl = "https://cdn.jsdelivr.net/npm/us-atlas@3/counties-10m.json";
 const MapChart = (props) => {
     const data = props.data 
-    // const field = props.field || 'Cases_7_day_count_change'
-    const field = 'Cases_7_day_count_change'
+    const field = props.field || 'Cases_7_day_count_change'
 
     const colorScale = scaleQuantile()
         .domain(data.map(d => d[field]))

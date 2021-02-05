@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import MapChart from '../covid/Map';
 import Spinner from 'react-bootstrap/Spinner'
+import CategorySearch from '../covid/CategorySearch'
 
 type CovidDataState = {
     fips_code: number,
@@ -42,6 +43,7 @@ const CovidData = (prop:covidProps) => {
     const [covid, SetCovid] = useState<CovidDataState[]>([])
     const [errorMessage,SetErrorMessage] = useState(null)
     const [loading, setLoading] = useState(true)
+    const [field, setField] = useState('')
 
 
     useEffect(() => {
@@ -82,9 +84,24 @@ const CovidData = (prop:covidProps) => {
     //         </div>
     // )}
 
+    const fieldSelected = (category:string) :any => {
+        setField(category)
+    }
+
+
     if(prop.map){
         return(
-            <MapChart data={covid}/>
+            <div>
+                Select a Categories
+                {/* we need to reword the categories */}
+                <CategorySearch  onFieldSelected={fieldSelected}/> 
+
+                {loading? 
+                    <Spinner animation="border" role="status" variant="primary">
+                        <span className="sr-only">Loading...</span>
+                    </Spinner> : <MapChart data={covid} field={field}/>}
+                {/* <MapChart data={covid} /> */}
+            </div>
         )
     }
 
@@ -94,7 +111,6 @@ const CovidData = (prop:covidProps) => {
 
     return(
         <div>
-
             {covidData[prop.info]}
         </div>
     )
