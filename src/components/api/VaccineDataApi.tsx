@@ -43,7 +43,7 @@ const VaccineData = (prop:vaccineProps) => {
         })
         .catch((error) => {
             SetErrorMessage(error.message)
-            console.log(errorMessage)
+            // console.log(errorMessage)
         })
     }, []);
     // we need the data to be designed properly in order to easily be displayed in a map

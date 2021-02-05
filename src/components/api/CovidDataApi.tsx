@@ -1,7 +1,10 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
+import MapChart from '../covid/Map';
+import Spinner from 'react-bootstrap/Spinner'
 
 type CovidDataState = {
+    fips_code: number,
     State_name: string,
     County: string,
     Cases_7_day_count_change: number,
@@ -38,16 +41,20 @@ interface covidProps{
 const CovidData = (prop:covidProps) => {
     const [covid, SetCovid] = useState<CovidDataState[]>([])
     const [errorMessage,SetErrorMessage] = useState(null)
+    const [loading, setLoading] = useState(true)
+
 
     useEffect(() => {
         axios.get("https://covid-cdc-api.herokuapp.com/covid-data")
         .then((response) => {
             const apiCovidData = response.data.integrated_county_latest_external_data;
             SetCovid(apiCovidData);
+            setLoading(false);
+
         })
         .catch((error) => {
             SetErrorMessage(error.message);
-            console.log(errorMessage);
+            // console.log(errorMessage);
         })
     }, []);
 
@@ -56,29 +63,42 @@ const CovidData = (prop:covidProps) => {
         const covidListMap = covid.map((state: CovidDataState, i): any => {
             return(
                 <div>
+                    {state.fips_code},
                     {state.State_name},
                     {state.County},
                     {state.Cases_7_day_count_change}, 
-                    {state.deaths_7_day_count_change}
+                    {state.Hospital_data_collection_date}
                 </div>
             )
         })
 
         return(
             <div>
-                {covidListMap}
+                {loading? 
+                <Spinner animation="border" role="status" variant="primary">
+                    <span className="sr-only">Loading...</span>
+                </Spinner> : covidListMap}
+                {/* {covidListMap} */}
             </div>
-        )}
+    )}
 
-        let covidData = covid.find(state => state.State_name === prop.stateName && state.County === prop.countyName);
-        if(!covidData)
-            return <p>Data not found!</p>
+    // if(prop.map){
+    //     return(
+    //         <MapChart data={covid}/>
+    //     )
+    // }
 
-        return(
-            <div>
-                {covidData[prop.info]}
-            </div>
-        )
+    let covidData = covid.find(state => state.State_name === prop.stateName && state.County === prop.countyName);
+    if(!covidData)
+        return <p>Data not found!</p>
+
+    return(
+        <div>
+
+            {covidData[prop.info]}
+        </div>
+    )
+
 
 };
 
