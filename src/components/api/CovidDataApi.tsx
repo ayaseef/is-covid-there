@@ -4,6 +4,7 @@ import MapChart from '../covid/Map';
 import Spinner from 'react-bootstrap/Spinner'
 import CategorySearch from '../covid/CategorySearch'
 import ReactTooltip from "react-tooltip";
+import { categoriesObj} from '../data/covidCategoriesName'
 
 
 type CovidDataState = {
@@ -92,6 +93,11 @@ const CovidData = (prop:covidProps) => {
         setField(category)
     }
 
+    const getKeyValue = <T extends object, U extends keyof T>(key: U) => (obj: T) =>
+    obj[key];//categoriesObj
+
+
+    
 
     if(prop.map){
         return(
@@ -106,6 +112,7 @@ const CovidData = (prop:covidProps) => {
                     </Spinner> : <div><MapChart data={covid} field={field} setTooltipContent={setContent}/> 
                     <ReactTooltip>{content}</ReactTooltip></div>}
                 {/* <MapChart data={covid} /> */}
+                
             </div>
         )
     }

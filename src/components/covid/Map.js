@@ -55,7 +55,7 @@ const MapChart = (props) => {
                         onMouseEnter={() => {
                             const { name } = geo.properties;
                             const id  = geo.id;
-                            setTooltipContent(`${name} ${cur[field]}`);
+                            setTooltipContent(`${name} ${cur[field]}`); // cur here is our data
                             }}
                             onMouseLeave={() => {
                             setTooltipContent("");
