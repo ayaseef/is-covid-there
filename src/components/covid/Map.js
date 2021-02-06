@@ -23,15 +23,21 @@ const MapChart = (props) => {
         "#782618"
         ]);
 
-    const rounded = num => {
-        if (num > 1000000000) {
-            return Math.round(num / 100000000) / 10 + "Bn";
-        } else if (num > 1000000) {
-            return Math.round(num / 100000) / 10 + "M";
-        } else {
-            return Math.round(num / 100) / 10 + "K";
-        }
-        };
+    // const rounded = num => {
+    //     if (num > 1000000000) {
+    //         return Math.round(num / 100000000) / 10 + "Bn";
+    //     } else if (num > 1000000) {
+    //         return Math.round(num / 100000) / 10 + "M";
+    //     } else {
+    //         return Math.round(num / 100) / 10 + "K";
+    //     }
+    //     };
+
+    // const mapFieldData = (field) => {
+    //     geographies.map(geo => {
+    //         const found = data.find(s => { 
+    //             return (s.fips_code == geo.id)});
+    // }
         
     return (
         <ComposableMap data-tip="" projectionConfig={{ scale: 900 }}projection="geoAlbersUsa">
@@ -40,8 +46,6 @@ const MapChart = (props) => {
                     {({ geographies }) =>
                     geographies.map(geo => {
                         const cur = data.find(s => { 
-                            // console.log(s.fips_code)
-                            // console.log(geo.id)
                             return (s.fips_code == geo.id)});
                         return (
                         <Geography
@@ -49,8 +53,9 @@ const MapChart = (props) => {
                             geography={geo}
                             fill={cur ? colorScale(cur[field]) : "#EEE"}
                         onMouseEnter={() => {
-                            const { State_name } = geo.properties;
-                            setTooltipContent(`${State_name} `);
+                            const { name } = geo.properties;
+                            const id  = geo.id;
+                            setTooltipContent(`${name} ${cur[field]}`);
                             }}
                             onMouseLeave={() => {
                             setTooltipContent("");
