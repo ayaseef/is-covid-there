@@ -3,6 +3,8 @@ import axios from 'axios';
 import MapChart from '../covid/Map';
 import Spinner from 'react-bootstrap/Spinner'
 import CategorySearch from '../covid/CategorySearch'
+import ReactTooltip from "react-tooltip";
+
 
 type CovidDataState = {
     fips_code: number,
@@ -44,6 +46,8 @@ const CovidData = (prop:covidProps) => {
     const [errorMessage,SetErrorMessage] = useState(null)
     const [loading, setLoading] = useState(true)
     const [field, setField] = useState('')
+    const [content, setContent] = useState("");
+
 
 
     useEffect(() => {
@@ -99,7 +103,8 @@ const CovidData = (prop:covidProps) => {
                 {loading? 
                     <Spinner animation="border" role="status" variant="primary">
                         <span className="sr-only">Loading...</span>
-                    </Spinner> : <MapChart data={covid} field={field}/>}
+                    </Spinner> : <div><MapChart data={covid} field={field} setTooltipContent={setContent}/> 
+                    <ReactTooltip>{content}</ReactTooltip></div>}
                 {/* <MapChart data={covid} /> */}
             </div>
         )
