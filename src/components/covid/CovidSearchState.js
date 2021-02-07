@@ -57,7 +57,7 @@ const CustomToggle = React.forwardRef(({ children, onClick }, ref) => (
     // iterate and select a callback onClick and chose the state
     const CovidSearchState = (props) => {
         const [state, setState] = useState("")
-        const [counties, setCounties] = useState(['State not selected'])
+        const [county, setCounty] = useState("")
 
 
         //filter data for the counties of a specific state and will return an array
@@ -81,6 +81,8 @@ const CustomToggle = React.forwardRef(({ children, onClick }, ref) => (
                 })}
             </Dropdown.Menu>
         </Dropdown>
+        <div>Selected State: {state}</div>
+        <div>
         {state? 
             <Dropdown>
             <Dropdown.Toggle as={CustomToggle} id="dropdown-custom-components">
@@ -89,11 +91,16 @@ const CustomToggle = React.forwardRef(({ children, onClick }, ref) => (
             <Dropdown.Menu as={CustomMenu}>
                 {stateCounties.map((county, i) => {
                 return(
-                    <Dropdown.Item eventKey={i + 1} onClick={(event)=>{props.onCountySelected(county)}} >{county}</Dropdown.Item>
+                    <Dropdown.Item eventKey={i + 1} onClick={(event)=>{props.onCountySelected(county);
+                    setCounty(county)
+                    }} >{county}</Dropdown.Item>
                 )
                 })}
             </Dropdown.Menu>
             </Dropdown> : 'Please enter a state to see list of counties'}
+            Selected County: {county}
+            </div>
+
     </div>
     )
     };
