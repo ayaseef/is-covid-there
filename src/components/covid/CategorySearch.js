@@ -79,7 +79,8 @@ const CustomToggle = React.forwardRef(({ children, onClick }, ref) => (
                 })}
             </Dropdown.Menu>
         </Dropdown>
-        Selected Category: {field}
+        { field? <div>Selected Category: {field}</div> : null}
+
     </div>
     
     

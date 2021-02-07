@@ -87,7 +87,6 @@ const CovidData = (prop:covidProps) => {
             <div>
                 <CovidSearchState onStateSelected={stateSelected} onCountySelected={countySelected}/>
 
-                Select a Categories
                 <CategorySearch  onFieldSelected={fieldSelected}/> 
 
                 {loading? 

@@ -81,7 +81,8 @@ const CustomToggle = React.forwardRef(({ children, onClick }, ref) => (
                 })}
             </Dropdown.Menu>
         </Dropdown>
-        <div>Selected State: {state}</div>
+        
+        {state? <div>Selected State: {state}</div> : null}
         <div>
         {state? 
             <Dropdown>
@@ -98,7 +99,7 @@ const CustomToggle = React.forwardRef(({ children, onClick }, ref) => (
                 })}
             </Dropdown.Menu>
             </Dropdown> : 'Please enter a state to see list of counties'}
-            Selected County: {county}
+            {county? <div>Selected County: {county}</div> : null}
             </div>
 
     </div>
