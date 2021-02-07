@@ -88,14 +88,13 @@ const CovidData = (prop:covidProps) => {
                 <CovidSearchState onStateSelected={stateSelected} onCountySelected={countySelected}/>
 
                 Select a Categories
-                {/* we need to reword the categories */}
                 <CategorySearch  onFieldSelected={fieldSelected}/> 
 
                 {loading? 
                     <Spinner animation="border" role="status" variant="primary">
                         <span className="sr-only">Loading...</span>
                     </Spinner> : <div>
-                        <MapChart data={covid} field={field} setTooltipContent={setContent} /> 
+                        <MapChart data={covid} field={field} setTooltipContent={setContent}  /> 
                     <ReactTooltip>{content}</ReactTooltip></div>}
                 {/* <MapChart data={covid} /> */}
                 

@@ -10,7 +10,7 @@ import VaccineComponenet from './components/vaccine/VaccineParentComponent'
 import HomeComponenet from './components/home/HomeParentComponent'
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Nav from 'react-bootstrap/Nav';
-import About from './components/About'
+import Resources from './components/Resources'
 
 
 
@@ -19,12 +19,6 @@ function App() {
     <div>
     <Router>
       <div>
-        {/* <ul>
-          <li><Link to="/">Home</Link></li>
-          <li><Link to="/vaccine">Vaccine Data</Link></li>
-          <li><Link to="/covid">Covid Data</Link></li>
-        </ul> */}
-
         <Nav fill variant="tabs" defaultActiveKey="/">
         <Nav.Item >
           <Nav.Link eventKey="link-1" as={Link} to="/">Home</Nav.Link>
@@ -36,7 +30,7 @@ function App() {
           <Nav.Link eventKey="link-3" as={Link} to="/covid">Covid</Nav.Link>
         </Nav.Item>
         <Nav.Item>
-          <Nav.Link eventKey="link-4" as={Link} to="/about">About Us</Nav.Link>
+          <Nav.Link eventKey="link-4" as={Link} to="/about">Resources</Nav.Link>
         </Nav.Item>
         <Nav.Item>
         </Nav.Item>
@@ -50,14 +44,13 @@ function App() {
               </Route>
             <Route exact path="/vaccine">
               <VaccineComponenet/>
-            {/* <VaccineData stateName={"Alaska"} info={'LongName'} map={true}/> */}
+
             </Route>
             <Route exact path="/covid">
               <CovidComponenet/>
-              {/* <CovidData stateName={'Alabama'} countyName={'Autauga'} info={'Cases_7_day_count_change'} map={true} /> */}
             </Route>
             <Route exact path="/about">
-              <About/>
+              <Resources/>
             </Route>
           </Switch>  
         <br></br>          

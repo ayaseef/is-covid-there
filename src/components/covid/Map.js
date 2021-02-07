@@ -47,7 +47,7 @@ const MapChart = (props) => {
                             geography={geo}
                             fill={cur ? colorScale(cur[field]) : "#EEE"}
                         onMouseEnter={() => {
-                            const { name } = geo.properties;
+                            const { name, } = geo.properties;
                             const id  = geo.id;
                             setTooltipContent(
                                 `${cur.State_name}, ${name} - ${cur[field]}
@@ -62,7 +62,7 @@ const MapChart = (props) => {
                                 outline: "none"
                             },
                             hover: {
-                                // fill: "#F53",
+                                fill: "#4287f5",
                                 outline: "solid"
                             },
                             pressed: {
