@@ -12,23 +12,23 @@ const MapChart = (props) => {
     const colorScale = scaleQuantile()
         .domain(data.map(d => d[field]))
         .range([ //change the color range here
-        // "#ffedea",
-        // "#ffcec5",
-        // "#ffad9f",
-        // "#ff8a75",
-        // "#ff5533",
-        // "#e2492d",
-        // "#be3d26",
-        // "#9a311f",
-        // "#782618"
+        "#ffedea",
+        "#ffcec5",
+        "#ffad9f",
+        "#ff8a75",
+        "#ff5533",
+        "#e2492d",
+        "#be3d26",
+        "#9a311f",
+        "#782618"
         // yellow, orange, red
-        '#fff30a',
-        '#ffd60a',
-        '#ffbe0a',
-        '#ffa10a',
-        '#ff7c0a',
-        '#ff330a',
-        '#a80a0a',
+        // '#fff30a',
+        // '#ffd60a',
+        // '#ffbe0a',
+        // '#ffa10a',
+        // '#ff7c0a',
+        // '#ff330a',
+        // '#a80a0a',
 
         ]);
 

@@ -86,24 +86,28 @@ const CovidData = (prop:covidProps) => {
                     <Spinner animation="border" role="status" variant="primary">
                         <span className="sr-only">Loading...</span>
                     </Spinner> : <div>
-                        <MapChart data={covid} field={field} setTooltipContent={setContent} center={"Washington"}/> 
+                        <MapChart data={covid} field={field} setTooltipContent={setContent} /> 
                     <ReactTooltip>{content}</ReactTooltip></div>}
                 {/* <MapChart data={covid} /> */}
                 
             </div>
         )
     }
-
-    let covidData = covid.find(state => state.State_name === prop.stateName && state.County === prop.countyName);
+    else if (prop.countyName && prop.stateName && prop.info){
+    let covidData:any = covid.find(state => state.State_name === prop.stateName && state.County === prop.countyName);
     if(!covidData)
-        return <p>Data not found!</p>
+        return <p>Info not found!</p>
 
     return(
         <div>
             {covidData[prop.info]}
         </div>
-    )
-
+    )}
+    else {
+        return(
+            <div>Data not found!</div>
+        )
+    }
 
 };
 
