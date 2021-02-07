@@ -18,9 +18,7 @@ const CovidComponenet = () :any => {
     return(
         <div>
             All Covid componentes
-            <CovidSearchState onStateSelected={stateSelected} onCountySelected={countySelected}/>
-
-            <CovidData stateName={'Washington'} countyName={'King'} info={'State_name'} />
+            <CovidData map={true}/>
 
         </div>
     )

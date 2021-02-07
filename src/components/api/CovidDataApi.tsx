@@ -5,6 +5,7 @@ import Spinner from 'react-bootstrap/Spinner'
 import CategorySearch from '../covid/CategorySearch'
 import ReactTooltip from "react-tooltip";
 import { categoriesObj} from '../data/covidCategoriesName'
+import CovidSearchState from '../covid/CovidSearchState'
 
 
 type CovidDataState = {
@@ -36,9 +37,9 @@ type CovidDataState = {
 }
 
 interface covidProps{
-    stateName: string;
-    countyName: string;
-    info: keyof CovidDataState;
+    stateName?: string;
+    countyName?: string;
+    info?: keyof CovidDataState;
     map?: boolean
 }
 
@@ -48,6 +49,8 @@ const CovidData = (prop:covidProps) => {
     const [loading, setLoading] = useState(true)
     const [field, setField] = useState('')
     const [content, setContent] = useState("");
+    const [state, setState] = useState("");
+    const [county, setCounty] = useState("");
     const [center, setCenter] = useState('')
 
 
@@ -70,14 +73,20 @@ const CovidData = (prop:covidProps) => {
         setField(category)
     }
 
-
-
+    const stateSelected = (stateName:string) :any => {
+        setState(stateName)
+    }
+    const countySelected = (countyName:string) :any => {
+        setCounty(countyName)
+    }
     const testing:string = "Washington"
     // setCenter(testing)
 
     if(prop.map){
         return(
             <div>
+                <CovidSearchState onStateSelected={stateSelected} onCountySelected={countySelected}/>
+
                 Select a Categories
                 {/* we need to reword the categories */}
                 <CategorySearch  onFieldSelected={fieldSelected}/> 
