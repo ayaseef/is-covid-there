@@ -63,7 +63,7 @@ const MapChart = (props) => {
                             },
                             hover: {
                                 fill: "#4287f5",
-                                outline: "solid"
+                                // stroke: "solid" can we later outline it
                             },
                             pressed: {
                                 // fill: "#E42",

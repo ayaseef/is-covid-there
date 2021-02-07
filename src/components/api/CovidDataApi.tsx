@@ -65,7 +65,6 @@ const CovidData = (prop:covidProps) => {
         })
         .catch((error) => {
             SetErrorMessage(error.message);
-            // console.log(errorMessage);
         })
     }, []);
 
