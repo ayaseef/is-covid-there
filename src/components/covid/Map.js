@@ -11,33 +11,27 @@ const MapChart = (props) => {
 
     const colorScale = scaleQuantile()
         .domain(data.map(d => d[field]))
-        .range([
-        "#ffedea",
-        "#ffcec5",
-        "#ffad9f",
-        "#ff8a75",
-        "#ff5533",
-        "#e2492d",
-        "#be3d26",
-        "#9a311f",
-        "#782618"
+        .range([ //change the color range here
+        // "#ffedea",
+        // "#ffcec5",
+        // "#ffad9f",
+        // "#ff8a75",
+        // "#ff5533",
+        // "#e2492d",
+        // "#be3d26",
+        // "#9a311f",
+        // "#782618"
+        // yellow, orange, red
+        '#fff30a',
+        '#ffd60a',
+        '#ffbe0a',
+        '#ffa10a',
+        '#ff7c0a',
+        '#ff330a',
+        '#a80a0a',
+
         ]);
 
-    // const rounded = num => {
-    //     if (num > 1000000000) {
-    //         return Math.round(num / 100000000) / 10 + "Bn";
-    //     } else if (num > 1000000) {
-    //         return Math.round(num / 100000) / 10 + "M";
-    //     } else {
-    //         return Math.round(num / 100) / 10 + "K";
-    //     }
-    //     };
-
-    // const mapFieldData = (field) => {
-    //     geographies.map(geo => {
-    //         const found = data.find(s => { 
-    //             return (s.fips_code == geo.id)});
-    // }
         
     return (
         <ComposableMap data-tip="" projectionConfig={{ scale: 900 }}projection="geoAlbersUsa">
@@ -55,7 +49,9 @@ const MapChart = (props) => {
                         onMouseEnter={() => {
                             const { name } = geo.properties;
                             const id  = geo.id;
-                            setTooltipContent(`${name} ${cur[field]}`); // cur here is our data
+                            setTooltipContent(
+                                `${cur.State_name}, ${name} - ${cur[field]}
+                                `); // cur here is our data
                             }}
                             onMouseLeave={() => {
                             setTooltipContent("");

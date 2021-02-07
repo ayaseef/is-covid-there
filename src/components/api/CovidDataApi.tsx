@@ -48,6 +48,7 @@ const CovidData = (prop:covidProps) => {
     const [loading, setLoading] = useState(true)
     const [field, setField] = useState('')
     const [content, setContent] = useState("");
+    const [center, setCenter] = useState('')
 
 
 
@@ -65,39 +66,14 @@ const CovidData = (prop:covidProps) => {
         })
     }, []);
 
-    // Use this only for Maps
-    // if(prop.map){
-    //     const covidListMap = covid.map((state: CovidDataState, i): any => {
-    //         return(
-    //             <div>
-    //                 {state.fips_code},
-    //                 {state.State_name},
-    //                 {state.County},
-    //                 {state.Cases_7_day_count_change}, 
-    //                 {state.Hospital_data_collection_date}
-    //             </div>
-    //         )
-    //     })
-
-    //     return(
-    //         <div>
-    //             {loading? 
-    //             <Spinner animation="border" role="status" variant="primary">
-    //                 <span className="sr-only">Loading...</span>
-    //             </Spinner> : covidListMap}
-    //             {covidListMap}
-    //         </div>
-    // )}
-
     const fieldSelected = (category:string) :any => {
         setField(category)
     }
 
-    const getKeyValue = <T extends object, U extends keyof T>(key: U) => (obj: T) =>
-    obj[key];//categoriesObj
 
 
-    
+    const testing:string = "Washington"
+    // setCenter(testing)
 
     if(prop.map){
         return(
@@ -109,7 +85,8 @@ const CovidData = (prop:covidProps) => {
                 {loading? 
                     <Spinner animation="border" role="status" variant="primary">
                         <span className="sr-only">Loading...</span>
-                    </Spinner> : <div><MapChart data={covid} field={field} setTooltipContent={setContent}/> 
+                    </Spinner> : <div>
+                        <MapChart data={covid} field={field} setTooltipContent={setContent} center={"Washington"}/> 
                     <ReactTooltip>{content}</ReactTooltip></div>}
                 {/* <MapChart data={covid} /> */}
                 
