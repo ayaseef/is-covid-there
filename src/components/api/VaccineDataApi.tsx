@@ -61,7 +61,7 @@ const VaccineData = (prop:vaccineProps) => {
                 {loading? 
                     <Spinner animation="border" role="status" variant="primary">
                         <span className="sr-only">Loading...</span>
-                    </Spinner> : <div> <MapChart data={vaccine} setTooltipContent={setContent}/> </div>}
+                    </Spinner> : <div> <MapChart data={vaccine}/> </div>}
     
             </div>
         )
