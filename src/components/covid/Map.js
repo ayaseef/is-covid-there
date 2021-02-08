@@ -30,11 +30,16 @@ const MapChart = (props) => {
         // '#ff330a',
         // '#a80a0a'
         ]);
+        //arcs in an array which each element is an array of vercities
+        //62694
+        // first group is coordinates and after that is the relative coordinates (we need to get the arc data of the first position) so 40 (first one) will be the 41st arch data
 
-        
+        const centerAttribute = props.center? {center: props.center}: {} //spread operator can't be done on null
+        console.log(centerAttribute)
+
     return (
-        <ComposableMap data-tip="" projectionConfig={{ scale: 700 }}projection="geoAlbersUsa">
-            <ZoomableGroup zoom={1}>
+        <ComposableMap data-tip="" projectionConfig={{ scale: 700 }}projection="geoAlbersUsa" >
+            <ZoomableGroup zoom={1} >
                 <Geographies geography={geoUrl}>
                     {({ geographies }) =>
                     geographies.map(geo => {

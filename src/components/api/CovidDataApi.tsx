@@ -92,7 +92,7 @@ const CovidData = (prop:covidProps) => {
                     <Spinner animation="border" role="status" variant="primary">
                         <span className="sr-only">Loading...</span>
                     </Spinner> : <div>
-                        <MapChart data={covid} field={field} setTooltipContent={setContent}  /> 
+                        <MapChart data={covid} field={field} setTooltipContent={setContent} /> 
                     <ReactTooltip>{content}</ReactTooltip></div>}
     
                 

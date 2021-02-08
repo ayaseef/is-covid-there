@@ -20,7 +20,7 @@ const CovidComponenet = () :any => {
         <div>
             <CovidSearchState onStateSelected={stateSelected} onCountySelected={countySelected}/>
 
-            <CovidData map={true}/>
+            <CovidData map={true} />
 
             {county?
                     <div><h4>{county} County Overview </h4>
@@ -32,6 +32,7 @@ const CovidComponenet = () :any => {
                     Percent Uninsured in 2019 <CovidData stateName={state} countyName={county} info={'percent_uninsured_2019'}/>
                     Poverty Rate 2019 <CovidData stateName={state} countyName={county} info={'poverty_rate_2019'}/>
                     Percent 65 plus <CovidData stateName={state} countyName={county} info={'percent_65_plus'}/>
+
                     {/* hospital icon */}
                     Total Hospitals Reporting <CovidData stateName={state} countyName={county} info={'total_hospitals_reporting'}/>
                     percent_adult_inpatient_beds_used_confirmed_covid <CovidData stateName={state} countyName={county} info={'percent_adult_inpatient_beds_used_confirmed_covid'}/>
