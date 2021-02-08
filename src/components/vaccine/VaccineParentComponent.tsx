@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import VaccineData from '../api/VaccineDataApi';
 import VaccineSearchState from './VaccineSearchState'
 
 
@@ -9,9 +10,9 @@ const VaccineComponenet = () :any => {
     }
     return(
         <div>
-            All Vaccine componentes
             <VaccineSearchState onStateSelected={stateSelected}/>
-            {state}
+            Doeses Distributed:
+            <VaccineData stateName={state} info={'Doses_Distributed'}/>
         </div>
     )
 }

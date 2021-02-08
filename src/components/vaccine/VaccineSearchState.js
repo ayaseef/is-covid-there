@@ -58,8 +58,10 @@ const CustomToggle = React.forwardRef(({ children, onClick }, ref) => (
     // iterate and select a callback onClick and chose the state
 
     const VaccineSearchState = (props) => {
+        const [state, setState] = useState('');
 
     return(
+        <div>
     <Dropdown>
         <Dropdown.Toggle as={CustomToggle} id="dropdown-custom-components">
         Select a State <span></span>   
@@ -68,12 +70,15 @@ const CustomToggle = React.forwardRef(({ children, onClick }, ref) => (
         <Dropdown.Menu as={CustomMenu}>
             {allStates.map((state,i) => {
             return(
-                <Dropdown.Item eventKey={i + 1} onClick={(event)=>{props.onStateSelected(state)}} >{state}</Dropdown.Item>
+                <Dropdown.Item eventKey={i + 1} onClick={(event)=>{props.onStateSelected(state);
+                setState(state);
+                }} >{state}</Dropdown.Item>
             )
             })}
         </Dropdown.Menu>
     </Dropdown>
-    
+    { state? <div>Selected State: {state}</div> : null }
+    </div>
     )
     };
 
