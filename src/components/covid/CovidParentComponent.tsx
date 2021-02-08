@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import CovidSearchState from './CovidSearchState';
 import MapChart from './Map';
 import CovidData from '../api/CovidDataApi';
-import { Dropdown, DropdownButton} from 'react-bootstrap'
+import { Dropdown, DropdownButton, Card, ListGroup, ListGroupItem, CardDeck} from 'react-bootstrap'
 
 
 const CovidComponenet = () :any => {
@@ -24,7 +24,51 @@ const CovidComponenet = () :any => {
 
             {county?
                     <div><h4>{county} County Overview </h4>
-                    <hr/>
+                    <hr/> 
+
+                    <CardDeck>
+                        <Card>
+                            <Card.Img variant="top" src="holder.js/100px160" />
+                            <Card.Body>
+                            <Card.Title>Card title</Card.Title>
+                            <Card.Text>
+                                This is a wider card with supporting text below as a natural lead-in to
+                                additional content. This content is a little bit longer.
+                            </Card.Text>
+                            </Card.Body>
+                            <Card.Footer>
+                            <small className="text-muted">Last updated 3 mins ago</small>
+                            </Card.Footer>
+                        </Card>
+                        <Card>
+                            <Card.Img variant="top" src="holder.js/100px160" />
+                            <Card.Body>
+                            <Card.Title>Card title</Card.Title>
+                            <Card.Text>
+                                This card has supporting text below as a natural lead-in to additional
+                                content.{' '}
+                            </Card.Text>
+                            </Card.Body>
+                            <Card.Footer>
+                            <small className="text-muted">Last updated 3 mins ago</small>
+                            </Card.Footer>
+                        </Card>
+                        <Card>
+                            <Card.Img variant="top" src="holder.js/100px160" />
+                            <Card.Body>
+                            <Card.Title>Card title</Card.Title>
+                            <Card.Text>
+                                This is a wider card with supporting text below as a natural lead-in to
+                                additional content. This card has even longer content than the first to
+                                show that equal height action.
+                            </Card.Text>
+                            </Card.Body>
+                            <Card.Footer>
+                            <small className="text-muted">Last updated 3 mins ago</small>
+                            </Card.Footer>
+                        </Card>
+                    </CardDeck>
+
                     {/* community icon */}
                     School Composit <CovidData stateName={state} countyName={county} info={'school_composite'}/>
                     Population Density in 2019 <CovidData stateName={state} countyName={county} info={'population_density_2019'}/>
