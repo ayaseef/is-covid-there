@@ -10,7 +10,8 @@ const VaccineComponenet = () :any => {
     }
     return(
         <div>
-            <VaccineSearchState onStateSelected={stateSelected}/>
+            <VaccineSearchState onStateSelected={stateSelected}/> 
+            <VaccineData map={true} />
             Doeses Distributed:
             <VaccineData stateName={state} info={'Doses_Distributed'}/>
         </div>

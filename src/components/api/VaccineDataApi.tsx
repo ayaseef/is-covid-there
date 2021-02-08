@@ -2,6 +2,8 @@ import React, {useEffect, useState} from 'react';
 import axios from 'axios';
 import { allowedNodeEnvironmentFlags } from 'process';
 import Spinner from 'react-bootstrap/Spinner'
+import MapChart from '../vaccine/VaccineMap'
+
 
 // define the data type of what we are receiving from the API
 type VaccineDataState = {
@@ -34,6 +36,7 @@ const VaccineData = (prop:vaccineProps) => {
     const [vaccine, setVaccine] = useState<VaccineDataState[]>([])
     const [errorMessage, SetErrorMessage] = useState(null);
     const [loading, setLoading] = useState(true)
+    const [content, setContent] = useState("");
 
     // get the data from API in AXIO, useEffect
     useEffect(() => {
@@ -58,7 +61,7 @@ const VaccineData = (prop:vaccineProps) => {
                 {loading? 
                     <Spinner animation="border" role="status" variant="primary">
                         <span className="sr-only">Loading...</span>
-                    </Spinner> : <div> put map component here </div>}
+                    </Spinner> : <div> <MapChart data={vaccine} setTooltipContent={setContent}/> </div>}
     
             </div>
         )
