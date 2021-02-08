@@ -28,13 +28,12 @@ const MapChart = (props) => {
         // '#ffa10a',
         // '#ff7c0a',
         // '#ff330a',
-        // '#a80a0a',
-
+        // '#a80a0a'
         ]);
 
         
     return (
-        <ComposableMap data-tip="" projectionConfig={{ scale: 900 }}projection="geoAlbersUsa">
+        <ComposableMap data-tip="" projectionConfig={{ scale: 700 }}projection="geoAlbersUsa">
             <ZoomableGroup zoom={1}>
                 <Geographies geography={geoUrl}>
                     {({ geographies }) =>

@@ -14,25 +14,25 @@ type CovidDataState = {
     County: string,
     Cases_7_day_count_change: number,
     deaths_7_day_count_change: number,
-    population_density_2019: number,
-    avg_hh_size: number,
-    percent_uninsured_2019: number,
-    poverty_rate_2019: number,
-    Percent_65_plus: number,
+    population_density_2019: number, // Cummonity
+    avg_hh_size: number, // Cummonity
+    percent_uninsured_2019: number, // Cummonity
+    poverty_rate_2019: number, // Cummonity
+    percent_65_plus: number, // Cummonity
     Case_death_start_date: Date, //just for us
     Case_death_end_date: Date, //just for us
     Testing_start_date: Date, //just for us
     Testing_end_date: Date, //just for us
     Hospital_data_collection_date: Date, //just for us
-    total_hospitals_reporting: number,
-    admissions_covid_confirmed_last_7_days: number,
-    admissions_covid_confirmed_last_7_days_per_100_beds: number,
-    percent_adult_inpatient_beds_used_confirmed_covid: number,
+    total_hospitals_reporting: number, // Hospital
+    admissions_covid_confirmed_last_7_days: number, // Hospital
+    admissions_covid_confirmed_last_7_days_per_100_beds: number, // Hospital
+    percent_adult_inpatient_beds_used_confirmed_covid: number, // Hospital
     Hospitals_included_in_percent_adult_inpatient_beds_used_confirmed_covid: number, //just for us
-    percent_adult_icu_beds_used_confirmed_covid: number,
+    percent_adult_icu_beds_used_confirmed_covid: number, // Hospital
     Hospitals_included_in_percent_adult_icu_beds_used_confirmed_covid: number, //just for us
-    percent_positive_14_day: number,
-    school_composite: string
+    percent_positive_14_day: number, //not consider it
+    school_composite: string // School
 
 }
 
@@ -84,7 +84,7 @@ const CovidData = (prop:covidProps) => {
     if(prop.map){
         return(
             <div>
-                <CovidSearchState onStateSelected={stateSelected} onCountySelected={countySelected}/>
+                {/* <CovidSearchState onStateSelected={stateSelected} onCountySelected={countySelected}/> */}
 
                 <CategorySearch  onFieldSelected={fieldSelected}/> 
 
@@ -94,7 +94,7 @@ const CovidData = (prop:covidProps) => {
                     </Spinner> : <div>
                         <MapChart data={covid} field={field} setTooltipContent={setContent}  /> 
                     <ReactTooltip>{content}</ReactTooltip></div>}
-                {/* <MapChart data={covid} /> */}
+    
                 
             </div>
         )

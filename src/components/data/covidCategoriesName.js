@@ -5,6 +5,7 @@ export  const categoriesObj = {
     avg_hh_size: 'average household size',
     percent_uninsured_2019: 'precent of uninsured 2019',
     poverty_rate_2019: 'poverty rate 2019',
+    percent_65_plus: 'Percent of 65 plus',
     total_hospitals_reporting: 'total reporting hospitals',
     admissions_covid_confirmed_last_7_days: 'covid addmissions confirmed last 7 days',
     admissions_covid_confirmed_last_7_days_per_100_beds: 'covid addmissions confirmed last 7 days per 100 beds',
