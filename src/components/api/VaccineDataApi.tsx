@@ -1,8 +1,10 @@
 import React, {useEffect, useState} from 'react';
 import axios from 'axios';
 import { allowedNodeEnvironmentFlags } from 'process';
-import Spinner from 'react-bootstrap/Spinner'
-import MapChart from '../vaccine/VaccineMap'
+import Spinner from 'react-bootstrap/Spinner';
+import MapChart from '../vaccine/VaccineMap';
+import ReactTooltip from "react-tooltip";
+
 
 
 // define the data type of what we are receiving from the API
@@ -61,7 +63,8 @@ const VaccineData = (prop:vaccineProps) => {
                 {loading? 
                     <Spinner animation="border" role="status" variant="primary">
                         <span className="sr-only">Loading...</span>
-                    </Spinner> : <div> <MapChart data={vaccine}/> </div>}
+                    </Spinner> : <div> <MapChart data={vaccine} setTooltipContent={setContent}/> 
+                    <ReactTooltip>{content}</ReactTooltip></div>}
     
             </div>
         )
