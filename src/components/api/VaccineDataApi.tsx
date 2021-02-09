@@ -85,14 +85,14 @@ const VaccineData = (prop:vaccineProps) => {
     return <p className={"loading"}> loading.. </p>
 
     return(
-        <div>
+        <span>
             {vaccineData[prop.info]}
-        </div>
+        </span>
     )
     }
     else {
         return(
-            <div className={"loading"}>loading..</div>
+            <span className={"loading"}>loading..</span>
         )
     }
 }

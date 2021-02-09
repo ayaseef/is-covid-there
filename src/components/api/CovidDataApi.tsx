@@ -7,15 +7,18 @@ import ReactTooltip from "react-tooltip";
 import { categoriesObj} from '../data/covidCategoriesName'
 import CovidSearchState from '../covid/CovidSearchState';
 import './Api.css';
+import * as moment from 'moment';
+
 
 
 
 type CovidDataState = {
     fips_code: number,
+    report_date: Date,
     State_name: string,
     County: string,
-    Cases_7_day_count_change: number,
-    deaths_7_day_count_change: number,
+    Cases_7_day_count_change: number, // Hospital
+    deaths_7_day_count_change: number,// Hospital
     population_density_2019: number, // Cummonity
     avg_hh_size: number, // Cummonity
     percent_uninsured_2019: number, // Cummonity
@@ -42,7 +45,8 @@ interface covidProps{
     stateName?: string;
     countyName?: string;
     info?: keyof CovidDataState;
-    map?: boolean
+    map?: boolean;
+    date?: boolean
 }
 
 const CovidData = (prop:covidProps) => {
@@ -105,13 +109,14 @@ const CovidData = (prop:covidProps) => {
         return <p className={"loading"}>loading..</p>
 
     return(
-        <div>
+        <span>
             {covidData[prop.info]}
-        </div>
+        </span>
     )}
+
     else {
         return(
-            <div className={"loading"}>loading..</div>
+            <span className={"loading"}>loading..</span>
         )
     }
 
