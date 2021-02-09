@@ -54,10 +54,14 @@ const MapChart = (props) => {
                             fill={cur ? colorScale(cur[field]) : "#EEE"}
                         onMouseEnter={() => {
                             const { name, } = geo.properties;
-                            const id  = geo.id;
+                            // eslint-disable-next-line no-lone-blocks
+                            {cur?
                             setTooltipContent(
-                                `${name} - ${cur[field]}
-                                `); // cur here is our data
+                                `${name} - ${cur[field]}`
+                                ): 
+                                setTooltipContent(
+                                    `${name} - no data provided`
+                                    )}
                             }}
                             onMouseLeave={() => {
                             setTooltipContent("");

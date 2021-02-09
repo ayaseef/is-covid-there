@@ -84,8 +84,6 @@ const CovidData = (prop:covidProps) => {
     if(prop.map){
         return(
             <div>
-                {/* <CovidSearchState onStateSelected={stateSelected} onCountySelected={countySelected}/> */}
-
                 <CategorySearch  onFieldSelected={fieldSelected}/> 
 
                 {loading? 
@@ -102,7 +100,7 @@ const CovidData = (prop:covidProps) => {
     else if (prop.countyName && prop.stateName && prop.info){
     let covidData:any = covid.find(state => state.State_name === prop.stateName && state.County === prop.countyName);
     if(!covidData)
-        return <p>Info not found!</p>
+        return <p>loading..</p>
 
     return(
         <div>
@@ -111,7 +109,7 @@ const CovidData = (prop:covidProps) => {
     )}
     else {
         return(
-            <div>Data not found!</div>
+            <div>loading..</div>
         )
     }
 

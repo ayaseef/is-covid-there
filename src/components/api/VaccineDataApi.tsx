@@ -4,6 +4,7 @@ import { allowedNodeEnvironmentFlags } from 'process';
 import Spinner from 'react-bootstrap/Spinner';
 import MapChart from '../vaccine/VaccineMap';
 import ReactTooltip from "react-tooltip";
+import CategorySearch from '../vaccine/VaccineCategorySearch' 
 
 
 
@@ -37,8 +38,10 @@ const VaccineData = (prop:vaccineProps) => {
     // useState is setting a variable and then making that variable change
     const [vaccine, setVaccine] = useState<VaccineDataState[]>([])
     const [errorMessage, SetErrorMessage] = useState(null);
-    const [loading, setLoading] = useState(true)
+    const [loading, setLoading] = useState(true);
     const [content, setContent] = useState("");
+    const [field, setField] = useState('');
+
 
     // get the data from API in AXIO, useEffect
     useEffect(() => {
@@ -55,15 +58,20 @@ const VaccineData = (prop:vaccineProps) => {
             // console.log(errorMessage)
         })
     }, []);
-    // we need the data to be designed properly in order to easily be displayed in a map
-    if(prop.map){
 
+    const fieldSelected = (category:string) :any => {
+        setField(category)
+    }
+
+    if(prop.map){
         return(
             <div>
+                <CategorySearch  onFieldSelected={fieldSelected}/> 
+
                 {loading? 
                     <Spinner animation="border" role="status" variant="primary">
                         <span className="sr-only">Loading...</span>
-                    </Spinner> : <div> <MapChart data={vaccine} setTooltipContent={setContent}/> 
+                    </Spinner> : <div> <MapChart data={vaccine} field={field} setTooltipContent={setContent}/> 
                     <ReactTooltip>{content}</ReactTooltip></div>}
     
             </div>
@@ -73,7 +81,7 @@ const VaccineData = (prop:vaccineProps) => {
     // create a function (state, info) it will return the info for that specific state
     let vaccineData = vaccine.find(state => state.LongName == prop.stateName);
     if(!vaccineData)
-    return <p> Info not found! </p>
+    return <p> loading.. </p>
 
     return(
         <div>
@@ -83,7 +91,7 @@ const VaccineData = (prop:vaccineProps) => {
     }
     else {
         return(
-            <div>Data not found!</div>
+            <div>loading..</div>
         )
     }
 }
