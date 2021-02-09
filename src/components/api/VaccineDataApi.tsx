@@ -4,7 +4,8 @@ import { allowedNodeEnvironmentFlags } from 'process';
 import Spinner from 'react-bootstrap/Spinner';
 import MapChart from '../vaccine/VaccineMap';
 import ReactTooltip from "react-tooltip";
-import CategorySearch from '../vaccine/VaccineCategorySearch' 
+import CategorySearch from '../vaccine/VaccineCategorySearch';
+import './Api.css';
 
 
 
@@ -81,7 +82,7 @@ const VaccineData = (prop:vaccineProps) => {
     // create a function (state, info) it will return the info for that specific state
     let vaccineData = vaccine.find(state => state.LongName == prop.stateName);
     if(!vaccineData)
-    return <p> loading.. </p>
+    return <p className={"loading"}> loading.. </p>
 
     return(
         <div>
@@ -91,7 +92,7 @@ const VaccineData = (prop:vaccineProps) => {
     }
     else {
         return(
-            <div>loading..</div>
+            <div className={"loading"}>loading..</div>
         )
     }
 }

@@ -1,5 +1,4 @@
 export  const categoriesVaccineObj = {
-    Date: 'Date',
     Doses_Distributed: 'doeses distributed',
     Doses_Administered: 'doses administered',
     Dist_Per_100K: 'distribution per 100k',

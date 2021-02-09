@@ -5,7 +5,9 @@ import Spinner from 'react-bootstrap/Spinner'
 import CategorySearch from '../covid/CategorySearch'
 import ReactTooltip from "react-tooltip";
 import { categoriesObj} from '../data/covidCategoriesName'
-import CovidSearchState from '../covid/CovidSearchState'
+import CovidSearchState from '../covid/CovidSearchState';
+import './Api.css';
+
 
 
 type CovidDataState = {
@@ -100,7 +102,7 @@ const CovidData = (prop:covidProps) => {
     else if (prop.countyName && prop.stateName && prop.info){
     let covidData:any = covid.find(state => state.State_name === prop.stateName && state.County === prop.countyName);
     if(!covidData)
-        return <p>loading..</p>
+        return <p className={"loading"}>loading..</p>
 
     return(
         <div>
@@ -109,7 +111,7 @@ const CovidData = (prop:covidProps) => {
     )}
     else {
         return(
-            <div>loading..</div>
+            <div className={"loading"}>loading..</div>
         )
     }
 

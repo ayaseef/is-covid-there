@@ -34,12 +34,30 @@ const MapChart = (props) => {
         //62694
         // first group is coordinates and after that is the relative coordinates (we need to get the arc data of the first position) so 40 (first one) will be the 41st arch data
 
-        const centerAttribute = props.center? {center: props.center}: {} //spread operator can't be done on null
-        console.log(centerAttribute)
+        // const centerAttribute = props.center? {center: props.center}: {} //spread operator can't be done on null
+        const [position, setPosition] = useState({ coordinates: [0, 0], zoom: 1 });
+
+        function handleZoomIn() {
+            if (position.zoom >= 4) return;
+            setPosition(pos => ({ ...pos, zoom: pos.zoom * 2 }));
+        }
+    
+        function handleZoomOut() {
+        if (position.zoom <= 1) return;
+        setPosition(pos => ({ ...pos, zoom: pos.zoom / 2 }));
+        }
+    
+        function handleMoveEnd(position) {
+        setPosition(position);
+        }
 
     return (
         <ComposableMap data-tip="" projectionConfig={{ scale: 700 }}projection="geoAlbersUsa" >
-            <ZoomableGroup zoom={1} >
+            <ZoomableGroup 
+            zoom={position.zoom}
+            center={position.coordinates}
+            onMoveEnd={handleMoveEnd}
+            >
                 <Geographies geography={geoUrl}>
                     {({ geographies }) =>
                     geographies.map(geo => {
