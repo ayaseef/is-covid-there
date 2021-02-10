@@ -2,3 +2,12 @@
     from {transform:rotate(0deg);}
     to {transform:rotate(360deg);}
   }
+
+#title {
+  font-Size: 8em;
+  color: rgb(77, 77, 77);
+}
+
+div.homePage {
+  text-align: center;
+}
