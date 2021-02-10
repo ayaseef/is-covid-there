@@ -6,6 +6,8 @@ import { Dropdown, DropdownButton, Card, ListGroup, ListGroupItem, CardDeck} fro
 import moment from 'moment';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCoffee } from '@fortawesome/free-solid-svg-icons';
+import { FaUserFriends, FaClinicMedical } from "react-icons/fa";
+import { IconContext } from "react-icons";
 
 
 
@@ -36,7 +38,11 @@ const CovidComponenet = () :any => {
                 <hr/> 
                 <CardDeck>
                     <Card>
-                        <Card.Img variant="top" src="holder.js/100px160" />
+                    <IconContext.Provider value={{ color: "gray", size: "5em", className: "global-class-name" }}>
+                    <div>
+                    <FaClinicMedical />
+                    </div>
+                    </IconContext.Provider>
                         <Card.Body>
                         <Card.Title>Hospital </Card.Title>
                         <hr/>
@@ -61,7 +67,11 @@ const CovidComponenet = () :any => {
                     </Card>
 
                     <Card>
-                        <Card.Img variant="top" src="holder.js/100px160" />
+                    <IconContext.Provider value={{ color: "gray", size: "5em", className: "global-class-name" }}>
+                    <div>
+                    <FaUserFriends />
+                    </div>
+                    </IconContext.Provider>
                         <Card.Body>
                         <Card.Title>Community</Card.Title>
                         <hr/>
