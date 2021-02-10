@@ -1,3 +1,7 @@
 .loading{
     color: rgb(185, 180, 180)
 }
+
+.mapAlert {
+    font-size: small;
+}
