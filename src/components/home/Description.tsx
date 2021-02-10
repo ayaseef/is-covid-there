@@ -3,7 +3,7 @@ import React from 'react';
 
 const AppDescription = () :any => {
     return(
-        <div>
+        <div className={'description'}>
             <br/>
             <br/>                
             {/* Always use proper punctuation and grammar.
