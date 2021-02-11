@@ -6,6 +6,7 @@ import MapChart from '../vaccine/VaccineMap';
 import ReactTooltip from "react-tooltip";
 import CategorySearch from '../vaccine/VaccineCategorySearch';
 import './Api.css';
+import './CovidMap.css';
 
 
 
@@ -74,7 +75,7 @@ const VaccineData = (prop:vaccineProps) => {
                         <span className="sr-only">Loading...</span>
                     </Spinner> : <div> <MapChart data={vaccine} field={field} setTooltipContent={setContent}/> 
                     {/* <p className={'mapAlert'}>This map is not intended to be used to self diagnose medical conditions.</p> */}
-                    <ReactTooltip>{content}</ReactTooltip></div>}
+                    <ReactTooltip className={'tooltip'}>{content}</ReactTooltip></div>}
     
             </div>
         )

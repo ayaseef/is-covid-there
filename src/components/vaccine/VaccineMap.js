@@ -2,6 +2,7 @@ import React, { memo, useState, useEffect } from "react";
 import { ComposableMap, Geographies, Geography, ZoomableGroup } from "react-simple-maps";
 import { scaleQuantile } from "d3-scale";
 import allState from '../data/allStates.json'
+import { categoriesVaccineObj } from '../data/vaccineCategories'
 // import { csv } from "d3-fetch";
 
 const geoUrl = "https://cdn.jsdelivr.net/npm/us-atlas@3/states-10m.json";
@@ -104,7 +105,8 @@ const MapChart = (props) => {
                             // eslint-disable-next-line no-lone-blocks
                             {cur?
                             setTooltipContent(
-                                `${name} - ${cur[field]}`
+                                `${name} -
+                                ${categoriesVaccineObj[field]}: ${cur[field]}`
                                 ): 
                                 setTooltipContent(
                                     `${name} - no data provided`
