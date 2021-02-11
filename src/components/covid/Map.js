@@ -72,7 +72,7 @@ const MapChart = (props) => {
                             const { name, } = geo.properties;
                             const id  = geo.id;
                             setTooltipContent(
-                                `${cur.State_name}, ${name} - ${cur[field]}
+                                `${cur.State_name},  ${name} - ${cur[field]}
                                 `); // cur here is our data
                             }}
                             onMouseLeave={() => {

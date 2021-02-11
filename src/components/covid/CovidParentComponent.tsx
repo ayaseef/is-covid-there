@@ -71,22 +71,22 @@ const CovidComponenet = () :any => {
                         <Card.Title>Community</Card.Title>
                         <hr/>
                         <Card.Text>
-                        Population Density in 2019<span> </span>
+                        Population Density in 2019:<span> </span>
                         <CovidData stateName={state} countyName={county} info={'population_density_2019'}/>
                         <hr/>
-                        Average Household Size<span> </span>
+                        Average Household Size:<span> </span>
                         <CovidData stateName={state} countyName={county} info={'avg_hh_size'}/>
                         <hr/>
-                        Percent of Uninsured Population in 2019<span> </span>
+                        Percent of Uninsured Population in 2019:<span> </span>
                         <CovidData stateName={state} countyName={county} info={'percent_uninsured_2019'}/>
                         <hr/>
-                        Poverty Rate 2019<span> </span>
+                        Poverty Rate 2019:<span> </span>
                         <CovidData stateName={state} countyName={county} info={'poverty_rate_2019'}/>
                         <hr/>
-                        Percent  of 65 plus<span> </span>
+                        Percent  of 65 plus:<span> </span>
                         <CovidData stateName={state} countyName={county} info={'percent_65_plus'}/>
                         <hr/>
-                        School Composit<span> </span>
+                        School Composit:<span> </span>
                         <CovidData stateName={state} countyName={county} info={'school_composite'}/>
                         </Card.Text>
                         </Card.Body>

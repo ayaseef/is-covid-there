@@ -9,7 +9,7 @@ const FooterData = () :any => {
     return(
         <div className={'footer'}>
             <div > All rights reserved to Noor & Ayesha 2021 </div>
-            <div> All Covid and Vaccine Data obtained from updated CDC APIs</div>
+            <div> All Covid and Vaccine Data obtained from updated CDC resources</div>
         </div>
     )
 }
