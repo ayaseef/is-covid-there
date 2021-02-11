@@ -51,3 +51,7 @@ body {
 .featureList{
   list-style-type: none;
 }
+
+a:link, a:visited, a:hover, a:active {
+  color: rgb(53, 110, 63);
+}

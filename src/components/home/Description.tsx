@@ -13,7 +13,7 @@ const AppDescription = () :any => {
             Think about your target customer and highlight features that will appeal to that customer.
             Explain how and why your app will benefit users.
             Show off—don't forget to include the attributes that make your app stand out and feel free to do so in detail..  */}
-            
+            {/* <p> Detalied Vaccine Data on Map - Hospitals Data on Map - School Responses data - Community Data on Map -  Reliable data from CDC</p> */}
             <p>Traveling or moving during COVID is such a tough decision to make! 
             It's not easy to understand the COVID situation in a specific place inside the US as there are lots of confusing information.</p>
 
