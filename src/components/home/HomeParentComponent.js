@@ -4,7 +4,7 @@ import Img from 'react-image'
 import './Home.css'
 
 const HomeComponenet = ()  => {
-  const [speed, setSpeed] = useState(3)
+    const [speed, setSpeed] = useState(3)
     return(
         <div className={'homePage'}>
             <br></br>
