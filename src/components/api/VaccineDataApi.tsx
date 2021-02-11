@@ -71,9 +71,9 @@ const VaccineData = (prop:vaccineProps) => {
                 <CategorySearch  onFieldSelected={fieldSelected}/> 
 
                 {loading? 
-                    <Spinner animation="border" role="status" variant="primary">
+                    <span className={'spinner'}><Spinner animation="border" role="status" variant="primary">
                         <span className="sr-only">Loading...</span>
-                    </Spinner> : <div> <MapChart data={vaccine} field={field} setTooltipContent={setContent}/> 
+                    </Spinner></span> : <div> <MapChart data={vaccine} field={field} setTooltipContent={setContent}/> 
                     {/* <p className={'mapAlert'}>This map is not intended to be used to self diagnose medical conditions.</p> */}
                     <ReactTooltip className={'tooltip'}>{content}</ReactTooltip></div>}
     
