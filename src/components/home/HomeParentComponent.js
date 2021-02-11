@@ -8,7 +8,7 @@ const HomeComponenet = ()  => {
     return(
         <div className={'homePage'}>
             <br></br>
-            <h1 id={'title'}> Is C<img style={{animation: `spin ${speed}s linear infinite`}} src={'https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/120/apple/271/microbe_1f9a0.png'}alt='covid'/>VID there? </h1>
+            <h1 id={'title'}> Is C<img style={{animation: `spin ${speed}s linear infinite`}} src={'https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/120/apple/271/microbe_1f9a0.png'}alt='covid'/>VID There? </h1>
             
             <AppDescription/>
         </div>

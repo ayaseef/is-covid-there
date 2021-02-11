@@ -97,7 +97,7 @@ const CovidData = (prop:covidProps) => {
                         <span className="sr-only">Loading...</span>
                     </Spinner> : <div>
                         <MapChart data={covid} field={field} setTooltipContent={setContent} /> 
-                        <p className={'mapAlert'}>This map is not intended to be used to self diagnose medical conditions.</p>
+                        {/* <p className={'mapAlert'}>This map is not intended to be used to self diagnose medical conditions.</p> */}
                     <ReactTooltip>{content}</ReactTooltip></div>}
     
                 
