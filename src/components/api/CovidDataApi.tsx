@@ -95,9 +95,9 @@ const CovidData = (prop:covidProps) => {
                 <CategorySearch  onFieldSelected={fieldSelected}/> 
 
                 {loading? 
-                    <Spinner animation="border" role="status" variant="primary">
+                    <span className={'spinner'}><Spinner animation="border" role="status" variant="danger" >
                         <span className="sr-only">Loading...</span>
-                    </Spinner> : <div>
+                    </Spinner></span> : <div>
                         <MapChart data={covid} field={field} setTooltipContent={setContent} /> 
                         {/* <p className={'mapAlert'}>This map is not intended to be used to self diagnose medical conditions.</p> */}
                     <ReactTooltip className={'tooltip'}>{content}</ReactTooltip></div>}
