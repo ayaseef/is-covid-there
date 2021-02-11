@@ -1,6 +1,8 @@
 import React, { memo, useState, useEffect } from "react";
 import { ComposableMap, Geographies, Geography, ZoomableGroup } from "react-simple-maps";
 import { scaleQuantile } from "d3-scale";
+import {categoriesObj} from '../data/covidCategoriesName'
+
 // import { csv } from "d3-fetch";
 
 const geoUrl = "https://cdn.jsdelivr.net/npm/us-atlas@3/counties-10m.json";
@@ -72,8 +74,9 @@ const MapChart = (props) => {
                             const { name, } = geo.properties;
                             const id  = geo.id;
                             setTooltipContent(
-                                `${cur.State_name},  ${name} - ${cur[field]}
-                                `); // cur here is our data
+                                `${cur.State_name}, ${name} -
+                                ${categoriesObj[field]}: ${cur[field]}
+                                `) // cur here is our data
                             }}
                             onMouseLeave={() => {
                             setTooltipContent("");

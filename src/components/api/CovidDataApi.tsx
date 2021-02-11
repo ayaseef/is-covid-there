@@ -8,6 +8,8 @@ import { categoriesObj} from '../data/covidCategoriesName'
 import CovidSearchState from '../covid/CovidSearchState';
 import './Api.css';
 import * as moment from 'moment';
+import './CovidMap.css';
+
 
 
 
@@ -98,7 +100,7 @@ const CovidData = (prop:covidProps) => {
                     </Spinner> : <div>
                         <MapChart data={covid} field={field} setTooltipContent={setContent} /> 
                         {/* <p className={'mapAlert'}>This map is not intended to be used to self diagnose medical conditions.</p> */}
-                    <ReactTooltip>{content}</ReactTooltip></div>}
+                    <ReactTooltip className={'tooltip'}>{content}</ReactTooltip></div>}
     
                 
             </div>
