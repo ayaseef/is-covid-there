@@ -2,3 +2,21 @@
     from {transform:rotate(0deg);}
     to {transform:rotate(360deg);}
   }
+
+#title {
+  font-Size: 8em;
+  color: rgb(77, 77, 77);
+  margin-top: 0.75em;
+  margin-bottom: 0.2em;
+}
+
+div.homePage {
+  text-align: center;
+}
+
+.description {
+  max-width: 40em;
+  margin-left: auto;
+  margin-right: auto;
+}
+

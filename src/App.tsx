@@ -21,16 +21,16 @@ function App() {
       <div>
         <Nav fill variant="tabs" defaultActiveKey="/">
         <Nav.Item >
-          <Nav.Link eventKey="link-1" as={Link} to="/">Home</Nav.Link>
+          <Nav.Link className={'tabs'} eventKey="link-1" as={Link} to="/">Home</Nav.Link>
         </Nav.Item>
         <Nav.Item>
-          <Nav.Link eventKey="link-2" as={Link} to="/vaccine">Vaccine</Nav.Link>
+          <Nav.Link className={'tabs'} eventKey="link-2" as={Link} to="/vaccine">Vaccine</Nav.Link>
         </Nav.Item>
         <Nav.Item>
-          <Nav.Link eventKey="link-3" as={Link} to="/covid">Covid</Nav.Link>
+          <Nav.Link className={'tabs'} eventKey="link-3" as={Link} to="/covid">Covid</Nav.Link>
         </Nav.Item>
         <Nav.Item>
-          <Nav.Link eventKey="link-4" as={Link} to="/about">Resources</Nav.Link>
+          <Nav.Link className={'tabs'} eventKey="link-4" as={Link} to="/about">Resources</Nav.Link>
         </Nav.Item>
         <Nav.Item>
         </Nav.Item>

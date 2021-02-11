@@ -7,6 +7,10 @@ import allState from '../data/allStates.json'
 const geoUrl = "https://cdn.jsdelivr.net/npm/us-atlas@3/states-10m.json";
 
 const MapChart = (props) => {
+    const [center, setCenter] = useState ([0,0])
+    const [zoom, setZoom] = useState (1)
+    const [bypass, setBypass] = useState (false)
+
     const data = props.data 
     const field = props.field || 'Admin_Per_100K'
     const setTooltipContent = props.setTooltipContent
@@ -39,29 +43,52 @@ const MapChart = (props) => {
         // first group is coordinates and after that is the relative coordinates (we need to get the arc data of the first position) so 40 (first one) will be the 41st arch data
 
         // console.log(centerAttribute)
-        const [position, setPosition] = useState({ coordinates: [0, 0], zoom: 1 });
+        // const [position, setPosition] = useState({ coordinates: [0, 0], zoom: 1 });
 
-        function handleZoomIn() {
-            if (position.zoom >= 4) return;
-            setPosition(pos => ({ ...pos, zoom: pos.zoom * 2 }));
-        }
+        // function handleZoomIn() {
+        //     if (position.zoom >= 4) return;
+        //     setPosition(pos => ({ ...pos, zoom: pos.zoom * 2 }));
+        // }
     
-        function handleZoomOut() {
-        if (position.zoom <= 1) return;
-        setPosition(pos => ({ ...pos, zoom: pos.zoom / 2 }));
-        }
+        // function handleZoomOut() {
+        // if (position.zoom <= 1) return;
+        // setPosition(pos => ({ ...pos, zoom: pos.zoom / 2 }));
+        // }
     
-        function handleMoveEnd(position) {
-        setPosition(position);
+        // function handleMoveEnd(position) {
+        // setPosition(position);
+        // }
+        function handleMoveStart(newCenter){
+            setCenter(newCenter); 
+            setBypass(true);
         }
+
+        function handleMoveEnd(newCenter){
+            setCenter(newCenter); 
+            setBypass(JSON.stringify(newCenter) !== JSON.stringify(center));
+        }
+
+        function handleGeographyClick(geography) {
+            // Cut this short if the bypass is enabled...
+            if (bypass) return
+            // ... or do other stuff to compute the center and zoom if the bypass is not enabled
+        }
+
 
     return (
         <div>
-        <ComposableMap data-tip="" projectionConfig={{ scale: 700 }}projection="geoAlbersUsa" >
+        <ComposableMap data-tip="" projectionConfig={{ scale: 700 }}
+        // width={800}
+        // height={450}
+        projection="geoAlbersUsa" >
             <ZoomableGroup 
-            zoom={position.zoom}
-            center={position.coordinates}
-            onMoveEnd={handleMoveEnd} >
+            // zoom={position.zoom}
+            // center={position.coordinates}
+            // center={center}
+            // zoom={zoom}
+            // onMoveStart={handleMoveStart}
+            // onMoveEnd={handleMoveEnd}
+            onMoveEnd={handleMoveEnd}>
                 <Geographies geography={geoUrl}>
                     {({ geographies }) =>
                     geographies.map(geo => {

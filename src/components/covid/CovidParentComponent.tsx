@@ -24,11 +24,6 @@ const CovidComponenet = () :any => {
         setCounty(countyName)
     }
 
-    // const yourDate = new Date()
-    // const date = moment( yourDate, 'DD-MM-YYYY')
-
-
-
     return(
         <div>
             <CovidSearchState onStateSelected={stateSelected} onCountySelected={countySelected}/>
@@ -77,9 +72,9 @@ const CovidComponenet = () :any => {
                         <hr/>
                         <Card.Text>
                         Population Density in 2019<span> </span>
-                            <CovidData stateName={state} countyName={county} info={'population_density_2019'}/>
-                            <hr/>
-                            Average Household Size<span> </span>
+                        <CovidData stateName={state} countyName={county} info={'population_density_2019'}/>
+                        <hr/>
+                        Average Household Size<span> </span>
                         <CovidData stateName={state} countyName={county} info={'avg_hh_size'}/>
                         <hr/>
                         Percent of Uninsured Population in 2019<span> </span>
@@ -100,7 +95,7 @@ const CovidComponenet = () :any => {
                         </Card.Footer>
                     </Card>
                 </CardDeck>
-                    </div>: null
+                </div>: null
             }
         </div>
     )
