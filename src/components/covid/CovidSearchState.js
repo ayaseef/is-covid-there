@@ -5,6 +5,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import React,{ useState } from 'react';
 import { statesCounties } from '../data/counties';
 import { allStates } from '../data/states'
+import './Covid.css'
 
 
 // The forwardRef is important!!
@@ -85,7 +86,7 @@ const CustomToggle = React.forwardRef(({ children, onClick }, ref) => (
         {state? <div>Selected State: {state}</div> : null}
         <div>
         {state? 
-            <Dropdown>
+            <Dropdown >
             <Dropdown.Toggle as={CustomToggle} id="dropdown-custom-components">
             Select a county <span></span>   
             </Dropdown.Toggle>

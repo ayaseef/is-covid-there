@@ -11,3 +11,8 @@
 .infoDiv {
     flex-grow: 1
 }
+
+.dropdown-menu{
+    /* height: 70px; */
+    /* overflow-y: scroll; */
+}
