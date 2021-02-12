@@ -63,7 +63,7 @@ const CustomToggle = React.forwardRef(({ children, onClick }, ref) => (
     return(
         <div>
     <Dropdown>
-        <Dropdown.Toggle as={CustomToggle} id="dropdown-custom-components">
+        <Dropdown.Toggle as={CustomToggle} id="dropdown-custom-components" >
         Select a State <span></span>   
         </Dropdown.Toggle>
         {/* maybe here to fix the search? */}

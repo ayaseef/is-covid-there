@@ -53,7 +53,7 @@ const MapChart = (props) => {
 
     return (
         <div onWheel={handleWheel} style={myStyle}>
-        <ComposableMap data-tip="" projectionConfig={{ scale: 700 }}projection="geoAlbersUsa" >
+        <ComposableMap data-tip="" projectionConfig={{ scale: 1000 }}projection="geoAlbersUsa" >
                 <Geographies geography={geoUrl}>
                     {({ geographies }) =>
                     geographies.map(geo => {

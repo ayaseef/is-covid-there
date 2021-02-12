@@ -4,6 +4,7 @@ import VaccineSearchState from './VaccineSearchState';
 import { Dropdown, DropdownButton, Card, ListGroup, ListGroupItem, CardDeck} from 'react-bootstrap';
 import { FaSyringe } from "react-icons/fa";
 import { IconContext } from "react-icons";
+import './vaccineMap.css'
 
 
 
@@ -13,10 +14,14 @@ const VaccineComponenet = () :any => {
         setState(stateName)
     }
     return(
-        <div>
-            <VaccineSearchState onStateSelected={stateSelected}/> 
-            <VaccineData map={true} />
+        <div className="mainDivFlex">
+            <div className="mapDiv">
+                <VaccineData map={true} />
+            </div>
 
+            <div className="infoDiv">
+                <VaccineSearchState onStateSelected={stateSelected}/>
+                <br/>
             {state?
             <Card>
                 <IconContext.Provider value={{ color: "gray", size: "5em", className: "global-class-name" }}>
@@ -46,6 +51,7 @@ const VaccineComponenet = () :any => {
                     <small className="text-muted">Last updated on <VaccineData stateName={state}  info={'Date'}/></small>
                     </Card.Footer>
                 </Card> : null}
+            </div>
         </div>
     )
 }

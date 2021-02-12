@@ -74,7 +74,7 @@ const MapChart = (props) => {
 
     return (
         <div onWheel={handleWheel} style={myStyle}>
-        <ComposableMap data-tip="" projectionConfig={{ scale: 700 }}
+        <ComposableMap data-tip="" projectionConfig={{ scale: 1000 }}
         // width={800}
         // height={450}
         projection="geoAlbersUsa" >

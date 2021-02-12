@@ -8,8 +8,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCoffee } from '@fortawesome/free-solid-svg-icons';
 import { FaUserFriends, FaClinicMedical } from "react-icons/fa";
 import { IconContext } from "react-icons";
-
-
+import './Covid.css'
 
 
 
@@ -25,9 +24,13 @@ const CovidComponenet = () :any => {
     }
 
     return(
-        <div>
-            <CovidSearchState onStateSelected={stateSelected} onCountySelected={countySelected}/>
+        <div className="mainDivFlex">
+            <div className="mapDiv">
+    
             <CovidData map={true} />
+            </div>
+            <div className="infoDiv">
+            <CovidSearchState onStateSelected={stateSelected} onCountySelected={countySelected}/>
             {county?
                 <div><h4>{county} County Overview </h4>
                 <hr/> 
@@ -97,6 +100,7 @@ const CovidComponenet = () :any => {
                 </CardDeck>
                 </div>: null
             }
+            </div>
         </div>
     )
 }
