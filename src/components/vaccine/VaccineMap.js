@@ -19,16 +19,6 @@ const MapChart = (props) => {
     const colorScale = scaleQuantile()
         .domain(data.map(d => d[field]))
         .range([ //change the color range here
-        // "#ffedea",
-        // "#ffcec5",
-        // "#ffad9f",
-        // "#ff8a75",
-        // "#ff5533",
-        // "#e2492d",
-        // "#be3d26",
-        // "#9a311f",
-        // "#782618"
-        // blues
         "#eafaff",
         "#c5effc",
         "#9de4fa",
@@ -75,21 +65,19 @@ const MapChart = (props) => {
             // ... or do other stuff to compute the center and zoom if the bypass is not enabled
         }
 
+        function handleWheel(e){
+        }
+        const myStyle = {
+            maxWidth: 1200 + "px"
+        }
+
 
     return (
-        <div>
+        <div onWheel={handleWheel} style={myStyle}>
         <ComposableMap data-tip="" projectionConfig={{ scale: 700 }}
         // width={800}
         // height={450}
         projection="geoAlbersUsa" >
-            <ZoomableGroup 
-            // zoom={position.zoom}
-            // center={position.coordinates}
-            // center={center}
-            // zoom={zoom}
-            // onMoveStart={handleMoveStart}
-            // onMoveEnd={handleMoveEnd}
-            onMoveEnd={handleMoveEnd}>
                 <Geographies geography={geoUrl}>
                     {({ geographies }) =>
                     geographies.map(geo => {
@@ -134,7 +122,6 @@ const MapChart = (props) => {
                     })
                     }
                 </Geographies>
-            </ZoomableGroup>
         </ComposableMap>
         </div>
     );

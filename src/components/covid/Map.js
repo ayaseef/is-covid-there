@@ -23,14 +23,6 @@ const MapChart = (props) => {
         "#be3d26",
         "#9a311f",
         "#782618"
-        // yellow, orange, red
-        // '#fff30a',
-        // '#ffd60a',
-        // '#ffbe0a',
-        // '#ffa10a',
-        // '#ff7c0a',
-        // '#ff330a',
-        // '#a80a0a'
         ]);
         //arcs in an array which each element is an array of vercities
         //62694
@@ -53,13 +45,15 @@ const MapChart = (props) => {
         setPosition(position);
         }
 
+        function handleWheel(e){
+        }
+        const myStyle = {
+            maxWidth: 1200 + "px"
+        }
+
     return (
+        <div onWheel={handleWheel} style={myStyle}>
         <ComposableMap data-tip="" projectionConfig={{ scale: 700 }}projection="geoAlbersUsa" >
-            <ZoomableGroup 
-            zoom={position.zoom}
-            center={position.coordinates}
-            onMoveEnd={handleMoveEnd}
-            >
                 <Geographies geography={geoUrl}>
                     {({ geographies }) =>
                     geographies.map(geo => {
@@ -100,8 +94,8 @@ const MapChart = (props) => {
                     })
                     }
                 </Geographies>
-            </ZoomableGroup>
         </ComposableMap>
+        </div>
     );
 };
 
