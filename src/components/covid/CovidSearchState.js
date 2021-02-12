@@ -60,7 +60,8 @@ const CustomToggle = React.forwardRef(({ children, onClick }, ref) => (
         const [state, setState] = useState("")
         const [county, setCounty] = useState("")
 
-
+        const states = Object.keys(statesCounties)
+        
         //filter data for the counties of a specific state and will return an array
         const stateCounties = statesCounties[state]
         // setCounties(statesCounties);
@@ -72,7 +73,7 @@ const CustomToggle = React.forwardRef(({ children, onClick }, ref) => (
             Select a State <span></span>   
             </Dropdown.Toggle>
             <Dropdown.Menu as={CustomMenu}>
-                {allStates.map((state,i) => {
+                {states.map((state,i) => {
                 return(
                     <Dropdown.Item eventKey={i + 1} onClick={(event)=>{props.onStateSelected(state);
                         setState(state)
