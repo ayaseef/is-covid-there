@@ -86,7 +86,7 @@ const CovidComponenet = () :any => {
                         Percent  of 65 plus:<span> </span>
                         <CovidData stateName={state} countyName={county} info={'percent_65_plus'}/>
                         <hr/>
-                        School Composit:<span> </span>
+                        School COVID Risk Info:<span> </span>
                         <CovidData stateName={state} countyName={county} info={'school_composite'}/>
                         </Card.Text>
                         </Card.Body>

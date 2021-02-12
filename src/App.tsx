@@ -10,7 +10,8 @@ import VaccineComponenet from './components/vaccine/VaccineParentComponent'
 import HomeComponenet from './components/home/HomeParentComponent'
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Nav from 'react-bootstrap/Nav';
-import Resources from './components/Resources'
+import Resources from './components/Resources';
+import PreventionComponenet from './components/Prevention'
 
 
 
@@ -30,7 +31,10 @@ function App() {
           <Nav.Link className={'tabs'} eventKey="link-3" as={Link} to="/covid">Covid</Nav.Link>
         </Nav.Item>
         <Nav.Item>
-          <Nav.Link className={'tabs'} eventKey="link-4" as={Link} to="/about">Resources</Nav.Link>
+          <Nav.Link className={'tabs'} eventKey="link-4" as={Link} to="/prevention">Prevention</Nav.Link>
+        </Nav.Item>
+        <Nav.Item>
+          <Nav.Link className={'tabs'} eventKey="link-5" as={Link} to="/resources">Resources</Nav.Link>
         </Nav.Item>
         <Nav.Item>
         </Nav.Item>
@@ -44,12 +48,14 @@ function App() {
               </Route>
             <Route exact path="/vaccine">
               <VaccineComponenet/>
-
             </Route>
             <Route exact path="/covid">
               <CovidComponenet/>
             </Route>
-            <Route exact path="/about">
+            <Route exact path="/prevention">
+            <PreventionComponenet/>
+            </Route>
+            <Route exact path="/resources">
               <Resources/>
             </Route>
           </Switch>  
