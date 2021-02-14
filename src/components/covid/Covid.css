@@ -13,6 +13,8 @@
 }
 
 .dropdown-menu{
-    /* height: 70px; */
-    /* overflow-y: scroll; */
+    /* height: 70px;
+    overflow-y: scroll; */
+        overflow-y: auto;
+
 }
