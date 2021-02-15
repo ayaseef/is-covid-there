@@ -2,6 +2,7 @@ import React, { memo, useState, useEffect } from "react";
 import { ComposableMap, Geographies, Geography, ZoomableGroup } from "react-simple-maps";
 import { scaleQuantile } from "d3-scale";
 import {categoriesObj} from '../data/covidCategoriesName'
+import NumberFormat from "react-number-format";
 
 // import { csv } from "d3-fetch";
 
@@ -67,10 +68,12 @@ const MapChart = (props) => {
                         onMouseEnter={() => {
                             const { name, } = geo.properties;
                             const id  = geo.id;
+                            const data = cur[field].toLocaleString()
+                            
                             setTooltipContent(
                                 `${cur.State_name}, ${name} -
-                                ${categoriesObj[field]}: ${cur[field]}
-                                `) // cur here is our data
+                                ${categoriesObj[field]}: ${data}
+                                ` ) // cur here is our data
                             }}
                             onMouseLeave={() => {
                             setTooltipContent("");

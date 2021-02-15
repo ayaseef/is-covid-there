@@ -10,6 +10,7 @@ import './Api.css';
 import * as moment from 'moment';
 import './CovidMap.css';
 import NumberFormat from 'react-number-format';
+import { profile } from 'console';
 
 
 
@@ -95,6 +96,13 @@ const CovidData = (prop:covidProps) => {
         return typeof(something) === 'number';
     }
 
+    const numberMask = (value:any) => (
+        <NumberFormat
+        value={parseInt(value)}
+        displayType="text"
+        thousandSeparator=","/>
+    )
+
     if(prop.map){
         return(
             <div>
@@ -124,6 +132,18 @@ const CovidData = (prop:covidProps) => {
             </span>
         )
     }
+
+    if(prop.info === 'report_date'){
+        const date = covidData.report_date
+        const updateDate = new Date(covidData.report_date).toLocaleString()
+
+        return(
+            <span>
+                {updateDate}
+            </span>
+        )
+    }
+
     return(
         <span className={'data'}>
             {covidData[prop.info]}

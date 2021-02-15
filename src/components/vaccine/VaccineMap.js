@@ -94,7 +94,7 @@ const MapChart = (props) => {
                             {cur?
                             setTooltipContent(
                                 `${name} -
-                                ${categoriesVaccineObj[field]}: ${cur[field]}`
+                                ${categoriesVaccineObj[field]}: ${cur[field].toLocaleString()}`
                                 ): 
                                 setTooltipContent(
                                     `${name} - no data provided`
