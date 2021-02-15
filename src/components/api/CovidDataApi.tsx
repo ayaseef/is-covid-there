@@ -9,6 +9,8 @@ import CovidSearchState from '../covid/CovidSearchState';
 import './Api.css';
 import * as moment from 'moment';
 import './CovidMap.css';
+import NumberFormat from 'react-number-format';
+
 
 
 
@@ -89,6 +91,10 @@ const CovidData = (prop:covidProps) => {
     const testing:string = "Washington"
     // setCenter(testing)
 
+    function isNumeric(something:any){
+        return typeof(something) === 'number';
+    }
+
     if(prop.map){
         return(
             <div>
@@ -111,8 +117,15 @@ const CovidData = (prop:covidProps) => {
     if(!covidData)
         return <p className={"loading"}>loading..</p>
 
+    if(isNumeric(covidData[prop.info])){
+        return(
+            <span className={'data'}>
+                <NumberFormat thousandSeparator={true} displayType={'text'} value={covidData[prop.info]}/>
+            </span>
+        )
+    }
     return(
-        <span>
+        <span className={'data'}>
             {covidData[prop.info]}
         </span>
     )}

@@ -7,6 +7,8 @@ import ReactTooltip from "react-tooltip";
 import CategorySearch from '../vaccine/VaccineCategorySearch';
 import './Api.css';
 import './CovidMap.css';
+import NumberFormat from 'react-number-format';
+
 
 
 
@@ -65,6 +67,11 @@ const VaccineData = (prop:vaccineProps) => {
         setField(category)
     }
 
+    function isNumeric(something:any):any{
+        return typeof(something) === 'number';
+    }
+
+
     if(prop.map){
         return(
             <div>
@@ -86,8 +93,16 @@ const VaccineData = (prop:vaccineProps) => {
     if(!vaccineData)
     return <p className={"loading"}> loading.. </p>
 
+    if(isNumeric(vaccineData[prop.info]) && vaccineData[prop.info] && prop.info !== 'Date'){
+        return(
+            <span className={'data'}>
+                <NumberFormat thousandSeparator={true} displayType={'text'} value={vaccineData[prop.info]}/>
+            </span>
+        )
+    }
+
     return(
-        <span>
+        <span className={'data'}>
             {vaccineData[prop.info]}
         </span>
     )
