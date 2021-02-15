@@ -81,13 +81,13 @@ const CovidComponenet = () :any => {
                         <CovidData stateName={state} countyName={county} info={'avg_hh_size'}/>
                         <hr/>
                         Percent of Uninsured Population in 2019:<span> </span>
-                        <CovidData stateName={state} countyName={county} info={'percent_uninsured_2019'}/>
+                        <CovidData stateName={state} countyName={county} info={'percent_uninsured_2019'}/>%
                         <hr/>
                         Poverty Rate 2019:<span> </span>
                         <CovidData stateName={state} countyName={county} info={'poverty_rate_2019'}/>
                         <hr/>
                         Percent  of 65 plus:<span> </span>
-                        <CovidData stateName={state} countyName={county} info={'percent_65_plus'}/>
+                        <CovidData stateName={state} countyName={county} info={'percent_65_plus'}/>%
                         <hr/>
                         School COVID Risk Info:<span> </span>
                         <CovidData stateName={state} countyName={county} info={'school_composite'}/>

@@ -138,7 +138,7 @@ const CovidData = (prop:covidProps) => {
         const updateDate = new Date(covidData.report_date).toLocaleString()
 
         return(
-            <span>
+            <span className={'data'}>
                 {updateDate}
             </span>
         )
