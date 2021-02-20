@@ -8,4 +8,7 @@ Please keep in mind, the recommendation during COVID is to stay home and not to 
 
 Please stay safe!
 
+WebAp is deplyoed in: 
+http://iscovidthere.s3-website-us-west-2.amazonaws.com/#/
+
 Authors: Ayesha & Noor
