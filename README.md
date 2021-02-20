@@ -11,6 +11,8 @@ Please stay safe!
 
 
 This WebApp is deplyoed and accessed in the link below:
-  http://iscovidthere.s3-website-us-west-2.amazonaws.com/#/
+
+
+http://iscovidthere.s3-website-us-west-2.amazonaws.com/#/
 
 Authors: Ayesha & Noor
