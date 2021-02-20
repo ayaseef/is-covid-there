@@ -8,9 +8,9 @@ Please keep in mind, the recommendation during COVID is to stay home and not to 
 
 Please stay safe!
 
+
+
 This WebApp is deplyoed and accessed in the link below:
-
-
   http://iscovidthere.s3-website-us-west-2.amazonaws.com/#/
 
 Authors: Ayesha & Noor
